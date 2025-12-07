@@ -154,16 +154,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const productCards = document.querySelectorAll('.product-card');
 
   if (filterBtns.length > 0) {
+    // Set initial state - "All" button should be active
+    const allBtn = document.querySelector('[data-filter="all"]');
+    if (allBtn) {
+      allBtn.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
+      allBtn.classList.add('bg-primary', 'text-white');
+    }
+
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         // Remove active class from all
         filterBtns.forEach(b => {
           b.classList.remove('bg-primary', 'text-white');
-          b.classList.add('bg-gray-100', 'text-gray-700', 'dark:bg-gray-800', 'dark:text-gray-300');
+          b.classList.add('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
         });
         
         // Add active class to clicked
-        btn.classList.remove('bg-gray-100', 'text-gray-700', 'dark:bg-gray-800', 'dark:text-gray-300');
+        btn.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
         btn.classList.add('bg-primary', 'text-white');
 
         const filterValue = btn.getAttribute('data-filter');

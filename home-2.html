@@ -28,18 +28,18 @@
 <body class="bg-gray-50 text-slate-900 dark:bg-dark-bg dark:text-dark-text transition-colors duration-300 flex flex-col min-h-screen">
 
     <!-- Header -->
-    <header class="fixed top-0 w-full z-50 bg-white/90 dark:bg-dark-bg/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+    <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-dark-bg/80 border-b border-gray-200 dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-14 md:h-16">
                 <a href="index.html" class="flex items-center space-x-2 flex-shrink-0 group">
-                    <div class="p-1.5 bg-primary rounded-lg text-white">
-                        <i data-lucide="shopping-bag" class="h-6 w-6"></i>
+                    <div class="p-1.5 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                        <i data-lucide="shopping-bag" class="h-5 w-5 md:h-6 md:w-6 text-primary"></i>
                     </div>
-                    <span class="font-bold text-xl text-primary whitespace-nowrap">MarketVibe</span>
+                    <span class="font-bold text-lg md:text-xl text-primary whitespace-nowrap">MarketVibe</span>
                 </a>
                 
                 <!-- Desktop Nav -->
-                <nav class="hidden md:flex items-center space-x-6">
+                <nav class="hidden lg:flex items-center space-x-6 lg:space-x-8">
                     <!-- Home Dropdown -->
                     <div class="relative">
                         <button id="desktop-home-btn" class="text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200 flex items-center focus:outline-none">
@@ -51,22 +51,25 @@
                         </div>
                     </div>
 
-                    <a href="market.html" class="text-sm font-medium hover:text-primary transition-colors">Shop</a>
-                    <a href="home-2.html" class="text-sm font-bold text-primary transition-colors">Deals</a>
-                    <a href="contact.html" class="text-sm font-medium hover:text-primary transition-colors">Support</a>
+                    <a href="market.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Shop</a>
+                    <a href="vendor-profile.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Vendors</a>
+                    <a href="about.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">About</a>
+                    <a href="contact.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Contact</a>
                     
-                    <button class="theme-toggle ml-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Dark Mode">
+                    <div class="h-6 w-px bg-gray-200 dark:bg-gray-700 mx-2"></div>
+
+                    <button class="theme-toggle p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Toggle Dark Mode">
                         <i data-lucide="sun" class="sun-icon h-5 w-5 hidden"></i>
                         <i data-lucide="moon" class="moon-icon h-5 w-5 block"></i>
                     </button>
-                    
-                    <div class="flex items-center space-x-3 ml-2">
-                        <a href="login.html" class="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-primary transition-colors" style="white-space: nowrap;">Log In</a>
-                        <a href="register.html" class="btn-hover px-5 py-2 rounded-full border-2 border-primary text-primary font-bold text-sm hover:bg-primary hover:text-white transition-colors" style="white-space: nowrap;">Sign Up</a>
+
+                    <div class="flex items-center space-x-3">
+                        <a href="login.html" class="btn-hover px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" style="white-space: nowrap;">Log In</a>
+                        <a href="register.html" class="btn-hover px-4 py-2 rounded-full bg-primary text-white text-sm font-bold shadow-md hover:bg-primary-dark transition-colors" style="white-space: nowrap;">Sign Up</a>
                     </div>
                 </nav>
 
-                <div class="flex md:hidden items-center space-x-4">
+                <div class="flex lg:hidden items-center space-x-4">
                      <button class="theme-toggle p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                         <i data-lucide="sun" class="sun-icon h-5 w-5 hidden"></i>
                         <i data-lucide="moon" class="moon-icon h-5 w-5 block"></i>
@@ -79,7 +82,7 @@
         </div>
 
         <!-- Mobile Menu (Alt Home) -->
-        <div id="mobile-menu" class="md:hidden bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-gray-800">
+        <div id="mobile-menu" class="lg:hidden bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-gray-800">
             <div class="px-4 pt-2 pb-4 space-y-1">
                  <!-- Home Accordion -->
                 <div>
@@ -92,9 +95,10 @@
                     </div>
                 </div>
 
-                <a href="market.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Shop</a>
-                <a href="home-2.html" class="block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-gray-100 dark:hover:bg-gray-800">Deals</a>
-                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Support</a>
+                <a href="market.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Shop</a>
+                <a href="vendor-profile.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Vendors</a>
+                <a href="about.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">About</a>
+                <a href="contact.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
                 
                 <!-- Login/Register Buttons -->
                 <div class="pt-4 mt-2 border-t border-gray-100 dark:border-gray-800 flex gap-3">
@@ -107,28 +111,38 @@
 
     <main class="flex-grow pt-16">
         
-        <!-- Split Hero -->
-        <section class="min-h-[600px] flex flex-col md:flex-row items-center">
-            <!-- Left Text -->
-            <div class="w-full md:w-1/2 px-5 md:p-12 lg:p-24 py-12 flex flex-col justify-center items-center md:items-start bg-white dark:bg-dark-bg z-10">
-                <span class="text-accent font-bold tracking-wider uppercase mb-4 text-center md:text-left">Summer Collection 2025</span>
-                <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight text-gray-900 dark:text-white text-center md:text-left">
+        <!-- Hero Section with Background Image -->
+        <section class="h-[45vh] md:h-[50vh] relative flex items-center justify-center overflow-hidden">
+            <!-- Background Image -->
+            <div class="absolute inset-0">
+                <img src="home2HeroImage.png" alt="Fashion Hero" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20"></div>
+                <div class="absolute inset-0 bg-black/30 dark:bg-black/50"></div>
+            </div>
+            <!-- Content -->
+            <div class="relative z-10 w-full px-5 md:p-8 lg:p-12 py-8 md:py-12 flex flex-col justify-center items-center text-center">
+                <span class="text-accent font-bold tracking-wider uppercase mb-3 md:mb-4 text-sm md:text-base lg:text-lg">Summer Collection 2025</span>
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-black mb-4 md:mb-6 leading-tight text-white">
                     Style That <br>
                     <span class="text-primary" style="white-space: nowrap;">Speaks Volume.</span>
                 </h1>
-                <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-md text-center md:text-left">
+                <p class="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl">
                     Upgrade your wardrobe with our exclusive selection of premium fashion items from top independent designers.
                 </p>
-                <div class="flex flex-row gap-3 sm:gap-4 w-full sm:w-auto justify-center md:justify-start px-5 sm:px-0">
-                    <a href="market.html" class="btn-hover px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-full shadow-lg hover:shadow-xl transition-all text-center text-xs sm:text-sm md:text-base whitespace-nowrap">Shop Now</a>
-                    <a href="#" class="btn-hover px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white font-bold rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all text-center text-xs sm:text-sm md:text-base whitespace-nowrap">Watch Video</a>
-                </div>
             </div>
-            <!-- Right Image -->
-            <div class="w-full md:w-1/2 h-96 md:h-[600px] bg-gray-100 relative overflow-hidden">
-                <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20"></div>
-                <!-- Hero Image -->
-                <img src="home2HeroImage.png" alt="Fashion Hero" class="w-full h-full object-cover">
+        </section>
+
+        <!-- Hero Action Buttons Section -->
+        <section class="py-4 md:py-6 bg-white dark:bg-dark-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center">
+                    <a href="market.html" class="btn-hover px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold rounded-full shadow-lg hover:shadow-xl transition-all text-center text-xs sm:text-sm md:text-base lg:text-lg whitespace-nowrap flex-shrink-0">
+                        Shop Now
+                    </a>
+                    <a href="#" class="btn-hover px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-4 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white font-bold rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all text-center text-xs sm:text-sm md:text-base lg:text-lg whitespace-nowrap flex-shrink-0">
+                        Watch Video
+                    </a>
+                </div>
             </div>
         </section>
 

@@ -41,7 +41,7 @@
                 </a>
                 
                 <!-- Desktop Nav -->
-                <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                <nav class="hidden lg:flex items-center space-x-6 lg:space-x-8">
                      <!-- Home Dropdown -->
                     <div class="relative">
                         <button id="desktop-home-btn" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200 flex items-center focus:outline-none">
@@ -71,7 +71,7 @@
                     </div>
                 </nav>
 
-                <div class="flex md:hidden items-center space-x-4">
+                <div class="flex lg:hidden items-center space-x-4">
                     <button class="theme-toggle p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                         <i data-lucide="sun" class="sun-icon h-5 w-5 hidden"></i>
                         <i data-lucide="moon" class="moon-icon h-5 w-5 block"></i>
@@ -85,7 +85,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-gray-800">
+        <div id="mobile-menu" class="lg:hidden bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-gray-800">
             <div class="px-4 pt-2 pb-4 space-y-1">
                  <!-- Home Accordion -->
                 <div>
@@ -127,7 +127,7 @@
                 
                 <!-- Filters -->
                 <div class="flex flex-wrap gap-3 mb-8 justify-center" id="filter-buttons">
-                    <button data-filter="all" class="filter-btn btn-hover px-5 py-2 rounded-full bg-primary text-white text-sm font-medium shadow-md transition-colors">All</button>
+                    <button data-filter="all" class="filter-btn btn-hover px-5 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium">All</button>
                     <button data-filter="electronics" class="filter-btn btn-hover px-5 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium">Electronics</button>
                     <button data-filter="fashion" class="filter-btn btn-hover px-5 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium">Fashion</button>
                     <button data-filter="home" class="filter-btn btn-hover px-5 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-sm font-medium">Home</button>
@@ -137,192 +137,192 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="product-grid">
                     
                     <!-- Electronics 1 -->
-                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full" data-category="electronics">
-                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full items-center text-center" data-category="electronics">
+                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden w-full">
                             <img src="https://images.pexels.com/photos/34018284/pexels-photo-34018284.jpeg?auto=compress&cs=tinysrgb&w=800" alt="ProPhone X" class="w-full h-full object-cover">
                         </div>
-                        <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">ProPhone X</h3>
+                        <div class="flex flex-col items-center mb-2 w-full">
+                             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">ProPhone X</h3>
                              <span class="text-lg font-bold text-primary">$999</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">The latest in mobile technology with a stunning 4K display.</p>
-                        <div class="flex items-center justify-between mt-auto">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow w-3/4">The latest in mobile technology with a stunning 4K display.</p>
+                        <div class="flex flex-col items-center gap-2 mt-auto w-full">
                             <span class="text-xs text-gray-500">TechWorld</span>
                             <a href="product-detail.html" class="btn-hover inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-lg text-primary bg-white hover:bg-primary-50 transition-colors shadow-sm">View Details</a>
                         </div>
                     </div>
 
                     <!-- Electronics 2 -->
-                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full" data-category="electronics">
-                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full items-center text-center" data-category="electronics">
+                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden w-full">
                             <img src="https://images.pexels.com/photos/34130516/pexels-photo-34130516.jpeg?auto=compress&cs=tinysrgb&w=800" alt="UltraBook Pro" class="w-full h-full object-cover">
                         </div>
-                        <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">UltraBook Pro</h3>
+                        <div class="flex flex-col items-center mb-2 w-full">
+                             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">UltraBook Pro</h3>
                              <span class="text-lg font-bold text-primary">$1,299</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">Lightweight, powerful, and ready for any task.</p>
-                        <div class="flex items-center justify-between mt-auto">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow w-3/4">Lightweight, powerful, and ready for any task.</p>
+                        <div class="flex flex-col items-center gap-2 mt-auto w-full">
                             <span class="text-xs text-gray-500">TechWorld</span>
                             <a href="#" class="btn-hover inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-lg text-primary bg-white hover:bg-primary-50 transition-colors shadow-sm">View Details</a>
                         </div>
                     </div>
 
                     <!-- Electronics 3 -->
-                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full" data-category="electronics">
-                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full items-center text-center" data-category="electronics">
+                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden w-full">
                             <img src="https://images.pexels.com/photos/13813454/pexels-photo-13813454.jpeg?auto=compress&cs=tinysrgb&w=800" alt="SonicBuds" class="w-full h-full object-cover">
                         </div>
-                        <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">SonicBuds</h3>
+                        <div class="flex flex-col items-center mb-2 w-full">
+                             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">SonicBuds</h3>
                              <span class="text-lg font-bold text-primary">$199</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">Immersive sound with active noise cancellation.</p>
-                        <div class="flex items-center justify-between mt-auto">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow w-3/4">Immersive sound with active noise cancellation.</p>
+                        <div class="flex flex-col items-center gap-2 mt-auto w-full">
                             <span class="text-xs text-gray-500">AudioPhile</span>
                             <a href="#" class="btn-hover inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-lg text-primary bg-white hover:bg-primary-50 transition-colors shadow-sm">View Details</a>
                         </div>
                     </div>
 
                     <!-- Fashion 1 -->
-                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full" data-category="fashion">
-                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
-                            <img src="https://images.pexels.com/photos/40737/pexels-photo-40737.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Air Walkers" class="w-full h-full object-cover">
+                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full items-center text-center" data-category="fashion">
+                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden w-full">
+                            <img src="AirWalkers.jpg" alt="Air Walkers" class="w-full h-full object-cover">
                         </div>
-                        <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">Air Walkers</h3>
+                        <div class="flex flex-col items-center mb-2 w-full">
+                             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Air Walkers</h3>
                              <span class="text-lg font-bold text-primary">$120</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">Ultra-comfortable running shoes designed for speed.</p>
-                         <div class="flex items-center justify-between mt-auto">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow w-3/4">Ultra-comfortable running shoes designed for speed.</p>
+                        <div class="flex flex-col items-center gap-2 mt-auto w-full">
                             <span class="text-xs text-gray-500">ShoeBox</span>
                             <a href="#" class="btn-hover inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-lg text-primary bg-white hover:bg-primary-50 transition-colors shadow-sm">View Details</a>
                         </div>
                     </div>
 
                     <!-- Fashion 2 -->
-                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full" data-category="fashion">
-                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full items-center text-center" data-category="fashion">
+                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden w-full">
                             <img src="https://images.pexels.com/photos/35012892/pexels-photo-35012892.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Denim Jacket" class="w-full h-full object-cover">
                         </div>
-                        <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">Denim Jacket</h3>
+                        <div class="flex flex-col items-center mb-2 w-full">
+                             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Denim Jacket</h3>
                              <span class="text-lg font-bold text-primary">$85</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">Classic style that never fades. Premium cotton blend.</p>
-                         <div class="flex items-center justify-between mt-auto">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow w-3/4">Classic style that never fades. Premium cotton blend.</p>
+                        <div class="flex flex-col items-center gap-2 mt-auto w-full">
                             <span class="text-xs text-gray-500">UrbanStyle</span>
                             <a href="#" class="btn-hover inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-lg text-primary bg-white hover:bg-primary-50 transition-colors shadow-sm">View Details</a>
                         </div>
                     </div>
 
                     <!-- Fashion 3 -->
-                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full" data-category="fashion">
-                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full items-center text-center" data-category="fashion">
+                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden w-full">
                             <img src="https://images.pexels.com/photos/845247/pexels-photo-845247.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Aviator Shades" class="w-full h-full object-cover">
                         </div>
-                        <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">Aviator Shades</h3>
+                        <div class="flex flex-col items-center mb-2 w-full">
+                             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Aviator Shades</h3>
                              <span class="text-lg font-bold text-primary">$150</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">Polarized lenses with a timeless gold frame.</p>
-                         <div class="flex items-center justify-between mt-auto">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow w-3/4">Polarized lenses with a timeless gold frame.</p>
+                        <div class="flex flex-col items-center gap-2 mt-auto w-full">
                             <span class="text-xs text-gray-500">SunnyDays</span>
                             <a href="#" class="btn-hover inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-lg text-primary bg-white hover:bg-primary-50 transition-colors shadow-sm">View Details</a>
                         </div>
                     </div>
 
                     <!-- Home 1 -->
-                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full" data-category="home">
-                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full items-center text-center" data-category="home">
+                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden w-full">
                             <img src="https://images.pexels.com/photos/714563/pexels-photo-714563.jpeg?auto=compress&cs=tinysrgb&w=800" alt="BrewMaster 3000" class="w-full h-full object-cover">
                         </div>
-                         <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">BrewMaster 3000</h3>
+                        <div class="flex flex-col items-center mb-2 w-full">
+                             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">BrewMaster 3000</h3>
                              <span class="text-lg font-bold text-primary">$150</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">Programmable drip coffee maker for the perfect morning brew.</p>
-                         <div class="flex items-center justify-between mt-auto">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow w-3/4">Programmable drip coffee maker for the perfect morning brew.</p>
+                        <div class="flex flex-col items-center gap-2 mt-auto w-full">
                             <span class="text-xs text-gray-500">KitchenPlus</span>
                             <a href="#" class="btn-hover inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-lg text-primary bg-white hover:bg-primary-50 transition-colors shadow-sm">View Details</a>
                         </div>
                     </div>
 
                     <!-- Home 2 -->
-                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full" data-category="home">
-                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full items-center text-center" data-category="home">
+                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden w-full">
                             <img src="https://images.pexels.com/photos/4884118/pexels-photo-4884118.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Modern Desk Lamp" class="w-full h-full object-cover">
                         </div>
-                         <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">Modern Desk Lamp</h3>
+                        <div class="flex flex-col items-center mb-2 w-full">
+                             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Modern Desk Lamp</h3>
                              <span class="text-lg font-bold text-primary">$45</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">Adjustable LED brightness with touch controls.</p>
-                         <div class="flex items-center justify-between mt-auto">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow w-3/4">Adjustable LED brightness with touch controls.</p>
+                        <div class="flex flex-col items-center gap-2 mt-auto w-full">
                             <span class="text-xs text-gray-500">BrightIdeas</span>
                             <a href="#" class="btn-hover inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-lg text-primary bg-white hover:bg-primary-50 transition-colors shadow-sm">View Details</a>
                         </div>
                     </div>
 
                     <!-- Home 3 -->
-                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full" data-category="home">
-                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full items-center text-center" data-category="home">
+                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden w-full">
                             <img src="https://images.pexels.com/photos/2130570/pexels-photo-2130570.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ceramic Planter" class="w-full h-full object-cover">
                         </div>
-                         <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ceramic Planter</h3>
+                        <div class="flex flex-col items-center mb-2 w-full">
+                             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Ceramic Planter</h3>
                              <span class="text-lg font-bold text-primary">$30</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">Handcrafted minimal design for indoor plants.</p>
-                         <div class="flex items-center justify-between mt-auto">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow w-3/4">Handcrafted minimal design for indoor plants.</p>
+                        <div class="flex flex-col items-center gap-2 mt-auto w-full">
                             <span class="text-xs text-gray-500">GreenThumb</span>
                             <a href="#" class="btn-hover inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-lg text-primary bg-white hover:bg-primary-50 transition-colors shadow-sm">View Details</a>
                         </div>
                     </div>
 
                     <!-- Art 1 -->
-                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full" data-category="art">
-                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full items-center text-center" data-category="art">
+                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden w-full">
                             <img src="https://images.pexels.com/photos/7577822/pexels-photo-7577822.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Abstract Canvas" class="w-full h-full object-cover">
                         </div>
-                         <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">Abstract Canvas</h3>
+                        <div class="flex flex-col items-center mb-2 w-full">
+                             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Abstract Canvas</h3>
                              <span class="text-lg font-bold text-primary">$250</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">Original acrylic painting on stretched canvas.</p>
-                         <div class="flex items-center justify-between mt-auto">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow w-3/4">Original acrylic painting on stretched canvas.</p>
+                        <div class="flex flex-col items-center gap-2 mt-auto w-full">
                             <span class="text-xs text-gray-500">ArtsyStudio</span>
                             <a href="#" class="btn-hover inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-lg text-primary bg-white hover:bg-primary-50 transition-colors shadow-sm">View Details</a>
                         </div>
                     </div>
 
                     <!-- Art 2 -->
-                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full" data-category="art">
-                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full items-center text-center" data-category="art">
+                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden w-full">
                             <img src="https://images.pexels.com/photos/33459151/pexels-photo-33459151.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Digital Print" class="w-full h-full object-cover">
                         </div>
-                         <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">Digital Print</h3>
+                        <div class="flex flex-col items-center mb-2 w-full">
+                             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Digital Print</h3>
                              <span class="text-lg font-bold text-primary">$40</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">High-resolution print of "Cyber City" concept art.</p>
-                         <div class="flex items-center justify-between mt-auto">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow w-3/4">High-resolution print of "Cyber City" concept art.</p>
+                        <div class="flex flex-col items-center gap-2 mt-auto w-full">
                             <span class="text-xs text-gray-500">PixelPerfect</span>
                             <a href="#" class="btn-hover inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-lg text-primary bg-white hover:bg-primary-50 transition-colors shadow-sm">View Details</a>
                         </div>
                     </div>
 
                     <!-- Art 3 -->
-                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full" data-category="art">
-                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                    <div class="service-card product-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col h-full items-center text-center" data-category="art">
+                        <div class="h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden w-full">
                             <img src="https://images.pexels.com/photos/7307272/pexels-photo-7307272.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Modern Sculpture" class="w-full h-full object-cover">
                         </div>
-                         <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-gray-900 dark:text-white">Modern Sculpture</h3>
+                        <div class="flex flex-col items-center mb-2 w-full">
+                             <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">Modern Sculpture</h3>
                              <span class="text-lg font-bold text-primary">$180</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow">Bronze finish abstract desktop sculpture.</p>
-                         <div class="flex items-center justify-between mt-auto">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 flex-grow w-3/4">Bronze finish abstract desktop sculpture.</p>
+                        <div class="flex flex-col items-center gap-2 mt-auto w-full">
                             <span class="text-xs text-gray-500">ModernForms</span>
                             <a href="#" class="btn-hover inline-flex items-center justify-center px-4 py-2 border border-primary text-sm font-medium rounded-lg text-primary bg-white hover:bg-primary-50 transition-colors shadow-sm">View Details</a>
                         </div>
