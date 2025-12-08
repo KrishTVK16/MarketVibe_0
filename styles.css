@@ -129,6 +129,13 @@ header {
   opacity: 1;
 }
 
+/* Hide mobile menu on large screens */
+@media (min-width: 1024px) {
+  #mobile-menu {
+    display: none !important;
+  }
+}
+
 /* Dropdown Menu Animation */
 .group:hover .group-hover\:block {
   display: block;
