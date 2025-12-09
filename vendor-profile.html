@@ -53,7 +53,7 @@
                     </div>
 
                     <a href="market.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Shop</a>
-                    <a href="vendor-profile.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Vendors</a>
+                    <a href="vendors.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Vendors</a>
                     <a href="about.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">About</a>
                     <a href="contact.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Contact</a>
                     
@@ -84,7 +84,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="lg:hidden bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-gray-800">
+        <div id="mobile-menu" class="bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-gray-800">
             <div class="px-4 pt-2 pb-4 space-y-1">
                  <!-- Home Accordion -->
                 <div>
@@ -98,7 +98,7 @@
                 </div>
 
                 <a href="market.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Shop</a>
-                <a href="vendor-profile.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Vendors</a>
+                <a href="vendors.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Vendors</a>
                 <a href="about.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">About</a>
                 <a href="contact.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
                 
@@ -112,85 +112,57 @@
     </header>
 
     <main class="flex-grow pt-14 md:pt-16">
-        <!-- Vendor Cover -->
-        <section class="h-40 md:h-48 bg-gradient-to-r from-primary to-primary-dark relative">
+        <!-- Vendor Cover with Info -->
+        <section class="h-64 md:h-80 bg-gradient-to-br from-primary via-primary-dark to-accent dark:from-primary dark:via-primary-dark dark:to-accent relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center justify-center text-center pt-8 pb-16">
+                <!-- Vendor Info -->
+                <div class="text-center">
+                    <h1 id="vendor-name" class="text-2xl md:text-4xl font-bold text-white flex items-center justify-center mb-3">
+                        TechWorld Official 
+                        <i data-lucide="check-circle" class="w-6 h-6 md:w-7 md:h-7 text-blue-300 ml-2 fill-current"></i>
+                    </h1>
+                    <div class="flex flex-col md:flex-row items-center justify-center text-sm md:text-base text-white/90 mt-2 space-y-2 md:space-y-0 md:space-x-6">
+                        <span id="vendor-location" class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 md:w-5 md:h-5 mr-1"></i> New York, USA</span>
+                        <span id="vendor-rating" class="flex items-center"><i data-lucide="star" class="w-4 h-4 md:w-5 md:h-5 mr-1 text-yellow-300 fill-current"></i> 4.9 (1.2k Reviews)</span>
+                        <span id="vendor-joined" class="flex items-center"><i data-lucide="calendar" class="w-4 h-4 md:w-5 md:h-5 mr-1"></i> Joined 2023</span>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+                    <button class="btn-hover px-6 py-2.5 bg-white dark:bg-dark-card hover:bg-gray-50 dark:hover:bg-gray-800 text-primary dark:text-white rounded-lg font-medium transition-colors shadow-lg">
+                        Follow
+                    </button>
+                    <button class="btn-hover px-6 py-2.5 border-2 border-white/80 hover:bg-white/10 text-white rounded-lg font-medium transition-colors">
+                        Message
+                    </button>
+                </div>
+                
+                <!-- Description -->
+                <p id="vendor-description" class="mt-6 text-white/90 max-w-3xl mx-auto text-center text-sm md:text-base leading-relaxed">
+                    Your #1 source for the latest electronics, gadgets, and tech accessories. We are committed to providing genuine products with manufacturer warranties and fast shipping.
+                </p>
+            </div>
+            
+            <!-- Avatar at Bottom -->
             <div class="absolute -bottom-12 left-0 right-0 md:left-8 md:right-auto flex justify-center md:justify-start">
                 <div class="w-24 h-24 bg-white dark:bg-dark-card rounded-full border-4 border-white dark:border-dark-bg p-1 shadow-lg">
-                     <div class="w-full h-full bg-purple-100 rounded-full flex items-center justify-center text-primary font-bold text-2xl">
-                         TW
-                     </div>
+                    <div id="vendor-avatar" class="w-full h-full bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-primary font-bold text-2xl">
+                        TW
+                    </div>
                 </div>
             </div>
         </section>
-
-        <!-- Vendor Info -->
-        <section class="pt-16 pb-8 bg-white/80 dark:bg-dark-bg border-b border-gray-200 dark:border-gray-800">
-             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                 <div class="flex flex-col items-center text-center">
-                     <div class="text-center">
-                         <h1 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white flex items-center justify-center">
-                             TechWorld Official 
-                             <i data-lucide="check-circle" class="w-5 h-5 text-blue-500 ml-2 fill-current text-white"></i>
-                         </h1>
-                         <div class="flex flex-col md:flex-row items-center justify-center text-sm text-gray-500 mt-2 space-y-2 md:space-y-0 md:space-x-4">
-                             <span class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-1"></i> New York, USA</span>
-                             <span class="flex items-center"><i data-lucide="star" class="w-4 h-4 mr-1 text-yellow-500"></i> 4.9 (1.2k Reviews)</span>
-                             <span class="flex items-center"><i data-lucide="calendar" class="w-4 h-4 mr-1"></i> Joined 2023</span>
-                         </div>
-                     </div>
-                     <div class="mt-4 flex gap-3 justify-center">
-                         <button class="btn-hover px-6 py-2 bg-primary hover:bg-primary-dark text-white rounded-lg font-medium transition-colors">
-                             Follow
-                         </button>
-                         <button class="btn-hover px-6 py-2 border border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-white rounded-lg font-medium transition-colors">
-                             Message
-                         </button>
-                     </div>
-                 </div>
-                 <p class="mt-6 text-gray-600 dark:text-gray-400 max-w-3xl mx-auto text-center">
-                     Your #1 source for the latest electronics, gadgets, and tech accessories. We are committed to providing genuine products with manufacturer warranties and fast shipping.
-                 </p>
-             </div>
-        </section>
+        
+        <!-- Spacer for Avatar -->
+        <div class="h-12"></div>
 
         <!-- Vendor Products -->
         <section class="py-8 bg-transparent">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Latest Products</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Product 1 -->
-                    <div class="service-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col items-center text-center">
-                        <div class="w-full h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
-                            <img src="https://images.pexels.com/photos/34018284/pexels-photo-34018284.jpeg?auto=compress&cs=tinysrgb&w=800" alt="ProPhone X" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white w-full">ProPhone X</h3>
-                        <div class="text-primary font-bold my-2 w-full">$999</div>
-                        <div class="mt-auto w-full flex justify-center">
-                             <a href="product-detail.html" class="btn-hover inline-block px-6 py-2 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-sm font-medium w-auto">View Product</a>
-                        </div>
-                    </div>
-                    <!-- Product 2 -->
-                    <div class="service-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col items-center text-center">
-                        <div class="w-full h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
-                            <img src="https://images.pexels.com/photos/34130516/pexels-photo-34130516.jpeg?auto=compress&cs=tinysrgb&w=800" alt="UltraBook Pro" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white w-full">UltraBook Pro</h3>
-                        <div class="text-primary font-bold my-2 w-full">$1,299</div>
-                        <div class="mt-auto w-full flex justify-center">
-                             <a href="#" class="btn-hover inline-block px-6 py-2 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-sm font-medium w-auto">View Product</a>
-                        </div>
-                    </div>
-                    <!-- Product 3 -->
-                    <div class="service-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col items-center text-center">
-                        <div class="w-full h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
-                            <img src="SmartWatch.jpg" alt="SmartWatch 5" class="w-full h-full object-cover">
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white w-full">SmartWatch 5</h3>
-                        <div class="text-primary font-bold my-2 w-full">$399</div>
-                        <div class="mt-auto w-full flex justify-center">
-                             <a href="#" class="btn-hover inline-block px-6 py-2 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-sm font-medium w-auto">View Product</a>
-                        </div>
-                    </div>
+                <div id="vendor-products" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Products will be dynamically loaded here -->
                 </div>
             </div>
         </section>
@@ -214,7 +186,7 @@
                     <ul class="space-y-2">
                         <li><a href="index.html" class="text-sm hover:text-white transition-colors">Home</a></li>
                         <li><a href="market.html" class="text-sm hover:text-white transition-colors">Shop All</a></li>
-                        <li><a href="vendor-profile.html" class="text-sm hover:text-white transition-colors">Vendors</a></li>
+                        <li><a href="vendors.html" class="text-sm hover:text-white transition-colors">Vendors</a></li>
                         <li><a href="contact.html" class="text-sm hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
@@ -242,5 +214,176 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script>
+        // Vendor Data
+        const vendors = {
+            techworld: {
+                name: "TechWorld Official",
+                initials: "TW",
+                location: "New York, USA",
+                rating: "4.9",
+                reviews: "1.2k",
+                joined: "2023",
+                description: "Your #1 source for the latest electronics, gadgets, and tech accessories. We are committed to providing genuine products with manufacturer warranties and fast shipping.",
+                avatarGradient: "from-purple-400 to-purple-600",
+                products: [
+                    { name: "ProPhone X", price: "$999", image: "https://images.pexels.com/photos/34018284/pexels-photo-34018284.jpeg?auto=compress&cs=tinysrgb&w=800" },
+                    { name: "UltraBook Pro", price: "$1,299", image: "https://images.pexels.com/photos/34130516/pexels-photo-34130516.jpeg?auto=compress&cs=tinysrgb&w=800" },
+                    { name: "SmartWatch 5", price: "$399", image: "SmartWatch.jpg" }
+                ]
+            },
+            urbanstyle: {
+                name: "UrbanStyle",
+                initials: "US",
+                location: "Los Angeles, USA",
+                rating: "4.8",
+                reviews: "856",
+                joined: "2022",
+                description: "Trendsetting fashion and apparel for the modern urban lifestyle. We curate the latest styles from independent designers and established brands.",
+                avatarGradient: "from-pink-400 to-pink-600",
+                products: [
+                    { name: "Denim Jacket", price: "$85", image: "https://images.pexels.com/photos/35012892/pexels-photo-35012892.jpeg?auto=compress&cs=tinysrgb&w=800" },
+                    { name: "Classic T-Shirt", price: "$35", image: "ClassicTShirt.jpg" },
+                    { name: "Urban Sneakers", price: "$120", image: "Air_Walkers.jpg" }
+                ]
+            },
+            audiophile: {
+                name: "AudioPhile",
+                initials: "AP",
+                location: "London, UK",
+                rating: "4.7",
+                reviews: "642",
+                joined: "2021",
+                description: "Premium audio equipment and accessories for music enthusiasts. From headphones to speakers, we bring you the best sound experience.",
+                avatarGradient: "from-blue-400 to-blue-600",
+                products: [
+                    { name: "SonicBuds", price: "$199", image: "https://images.pexels.com/photos/13813454/pexels-photo-13813454.jpeg?auto=compress&cs=tinysrgb&w=800" },
+                    { name: "Studio Headphones", price: "$299", image: "StudioHeadphones.jpg" },
+                    { name: "Wireless Speaker", price: "$149", image: "WirelessSpeaker.jpg" }
+                ]
+            },
+            shoebox: {
+                name: "ShoeBox",
+                initials: "SB",
+                location: "Miami, USA",
+                rating: "4.9",
+                reviews: "1.5k",
+                joined: "2023",
+                description: "The ultimate destination for footwear and sneakers. From running shoes to casual sneakers, find your perfect pair with us.",
+                avatarGradient: "from-amber-400 to-amber-600",
+                products: [
+                    { name: "Air Walkers", price: "$120", image: "Air_Walkers.jpg" },
+                    { name: "Running Pro", price: "$95", image: "RunningPro.jpg" },
+                    { name: "Casual Sneakers", price: "$75", image: "CasualSneakers.jpg" }
+                ]
+            },
+            kitchenplus: {
+                name: "KitchenPlus",
+                initials: "KP",
+                location: "Chicago, USA",
+                rating: "4.6",
+                reviews: "523",
+                joined: "2022",
+                description: "Everything you need for your kitchen and home. Quality cookware, appliances, and home essentials to make your life easier.",
+                avatarGradient: "from-orange-400 to-orange-600",
+                products: [
+                    { name: "BrewMaster 3000", price: "$150", image: "https://images.pexels.com/photos/714563/pexels-photo-714563.jpeg?auto=compress&cs=tinysrgb&w=800" },
+                    { name: "Modern Desk Lamp", price: "$45", image: "https://images.pexels.com/photos/4884118/pexels-photo-4884118.jpeg?auto=compress&cs=tinysrgb&w=800" },
+                    { name: "Ceramic Planter", price: "$30", image: "https://images.pexels.com/photos/2130570/pexels-photo-2130570.jpeg?auto=compress&cs=tinysrgb&w=800" }
+                ]
+            },
+            artsystudio: {
+                name: "ArtsyStudio",
+                initials: "AS",
+                location: "Paris, France",
+                rating: "4.8",
+                reviews: "789",
+                joined: "2021",
+                description: "Handcrafted art and unique handmade pieces from talented artists around the world. Discover one-of-a-kind creations for your home.",
+                avatarGradient: "from-indigo-400 to-indigo-600",
+                products: [
+                    { name: "Abstract Canvas", price: "$250", image: "https://images.pexels.com/photos/7577822/pexels-photo-7577822.jpeg?auto=compress&cs=tinysrgb&w=800" },
+                    { name: "Digital Print", price: "$40", image: "https://images.pexels.com/photos/33459151/pexels-photo-33459151.jpeg?auto=compress&cs=tinysrgb&w=800" },
+                    { name: "Modern Sculpture", price: "$180", image: "https://images.pexels.com/photos/7307272/pexels-photo-7307272.jpeg?auto=compress&cs=tinysrgb&w=800" }
+                ]
+            },
+            greenthumb: {
+                name: "GreenThumb",
+                initials: "GT",
+                location: "Portland, USA",
+                rating: "4.7",
+                reviews: "412",
+                joined: "2023",
+                description: "Bring nature indoors with our curated selection of plants, planters, and gardening essentials. Perfect for plant lovers and beginners alike.",
+                avatarGradient: "from-green-400 to-green-600",
+                products: [
+                    { name: "Ceramic Planter", price: "$30", image: "https://images.pexels.com/photos/2130570/pexels-photo-2130570.jpeg?auto=compress&cs=tinysrgb&w=800" },
+                    { name: "Indoor Plant Set", price: "$55", image: "IndoorPlantSet.jpg" },
+                    { name: "Garden Tools", price: "$45", image: "GardenTools.jpg" }
+                ]
+            },
+            sunnydays: {
+                name: "SunnyDays",
+                initials: "SD",
+                location: "Sydney, Australia",
+                rating: "4.6",
+                reviews: "298",
+                joined: "2023",
+                description: "Stylish sunglasses and accessories to protect your eyes while looking great. From classic designs to modern trends.",
+                avatarGradient: "from-yellow-400 to-yellow-600",
+                products: [
+                    { name: "Aviator Shades", price: "$150", image: "https://images.pexels.com/photos/845247/pexels-photo-845247.jpeg?auto=compress&cs=tinysrgb&w=800" },
+                    { name: "Wayfarer Classic", price: "$120", image: "WayfarerClassic.jpg" },
+                    { name: "Sport Sunglasses", price: "$95", image: "SportSunglasses.jpg" }
+                ]
+            }
+        };
+
+        // Load vendor data based on URL parameter
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const vendorId = urlParams.get('vendor') || 'techworld';
+            const vendor = vendors[vendorId] || vendors.techworld;
+
+            // Update page title
+            document.title = `Vendor Profile - ${vendor.name} - MarketVibe`;
+
+            // Update vendor info
+            document.getElementById('vendor-name').innerHTML = `${vendor.name} <i data-lucide="check-circle" class="w-6 h-6 md:w-7 md:h-7 text-blue-300 ml-2 fill-current"></i>`;
+            document.getElementById('vendor-location').innerHTML = `<i data-lucide="map-pin" class="w-4 h-4 md:w-5 md:h-5 mr-1"></i> ${vendor.location}`;
+            document.getElementById('vendor-rating').innerHTML = `<i data-lucide="star" class="w-4 h-4 md:w-5 md:h-5 mr-1 text-yellow-300 fill-current"></i> ${vendor.rating} (${vendor.reviews} Reviews)`;
+            document.getElementById('vendor-joined').innerHTML = `<i data-lucide="calendar" class="w-4 h-4 md:w-5 md:h-5 mr-1"></i> Joined ${vendor.joined}`;
+            document.getElementById('vendor-description').textContent = vendor.description;
+
+            // Update avatar
+            const avatar = document.getElementById('vendor-avatar');
+            avatar.textContent = vendor.initials;
+            avatar.className = `w-full h-full bg-gradient-to-br ${vendor.avatarGradient} rounded-full flex items-center justify-center text-white font-bold text-3xl md:text-4xl`;
+
+            // Update products
+            const productsContainer = document.getElementById('vendor-products');
+            if (productsContainer && vendor.products) {
+                productsContainer.innerHTML = vendor.products.map((product, index) => {
+                    // Create a product ID from the product name
+                    const productId = product.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+                    return `
+                    <div class="service-card bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col items-center text-center">
+                        <div class="w-full h-48 bg-gray-100 dark:bg-gray-700 rounded-lg mb-4 overflow-hidden">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white w-full">${product.name}</h3>
+                        <div class="text-primary font-bold my-2 w-full">${product.price}</div>
+                        <div class="mt-auto w-full flex justify-center">
+                            <a href="product-detail.html?product=${productId}&vendor=${vendorId}" class="btn-hover inline-block px-6 py-2 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-sm font-medium w-auto">View Product</a>
+                        </div>
+                    </div>
+                `;
+                }).join('');
+            }
+
+            // Reinitialize Lucide icons
+            lucide.createIcons();
+        });
+    </script>
 </body>
 </html>

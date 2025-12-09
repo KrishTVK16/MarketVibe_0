@@ -53,7 +53,7 @@
                     </div>
 
                     <a href="market.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Shop</a>
-                    <a href="vendor-profile.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Vendors</a>
+                    <a href="vendors.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Vendors</a>
                     <a href="about.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">About</a>
                     <a href="contact.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Contact</a>
                     
@@ -98,7 +98,7 @@
                 </div>
 
                 <a href="market.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Shop</a>
-                <a href="vendor-profile.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Vendors</a>
+                <a href="vendors.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Vendors</a>
                 <a href="about.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">About</a>
                 <a href="contact.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
 
@@ -112,17 +112,10 @@
     </header>
 
     <main class="flex-grow pt-14 md:pt-16">
-        <!-- Breadcrumb & Hero -->
-        <section class="bg-primary dark:bg-primary-dark py-6 text-white">
+        <!-- Hero -->
+        <section class="bg-primary dark:bg-primary-dark py-8 md:py-12 text-white">
              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                 <div class="flex items-center justify-center space-x-2 text-purple-200 text-sm mb-2">
-                     <a href="market.html" class="hover:text-white">Shop</a>
-                     <span>/</span>
-                     <a href="#" class="hover:text-white">Electronics</a>
-                     <span>/</span>
-                     <span class="text-white">ProPhone X</span>
-                 </div>
-                 <h1 class="text-2xl md:text-3xl font-bold">ProPhone X</h1>
+                 <h1 id="product-hero-title" class="text-3xl md:text-4xl lg:text-5xl font-bold">ProPhone X</h1>
              </div>
         </section>
 
@@ -222,7 +215,7 @@
                     <ul class="space-y-2">
                         <li><a href="index.html" class="text-sm hover:text-white transition-colors">Home</a></li>
                         <li><a href="market.html" class="text-sm hover:text-white transition-colors">Shop All</a></li>
-                        <li><a href="vendor-profile.html" class="text-sm hover:text-white transition-colors">Vendors</a></li>
+                        <li><a href="vendors.html" class="text-sm hover:text-white transition-colors">Vendors</a></li>
                         <li><a href="contact.html" class="text-sm hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
@@ -250,5 +243,322 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script>
+        // Product Data - matches vendor products
+        const products = {
+            'prophone-x': {
+                name: 'ProPhone X',
+                fullName: 'ProPhone X 256GB',
+                price: '$999.00',
+                image: 'https://images.pexels.com/photos/34018284/pexels-photo-34018284.jpeg?auto=compress&cs=tinysrgb&w=800',
+                category: 'Electronics',
+                vendor: 'TechWorld Official',
+                vendorLink: 'vendor-profile.html?vendor=techworld',
+                description: 'Experience the future of mobile technology. The ProPhone X features a stunning 6.7-inch OLED display, all-day battery life, and a revolutionary triple-camera system. Unlocked for all carriers.',
+                inStock: true
+            },
+            'ultrabook-pro': {
+                name: 'UltraBook Pro',
+                fullName: 'UltraBook Pro 512GB',
+                price: '$1,299.00',
+                image: 'https://images.pexels.com/photos/34130516/pexels-photo-34130516.jpeg?auto=compress&cs=tinysrgb&w=800',
+                category: 'Electronics',
+                vendor: 'TechWorld Official',
+                vendorLink: 'vendor-profile.html?vendor=techworld',
+                description: 'Lightweight, powerful, and ready for any task. The UltraBook Pro features a 13-inch Retina display, M2 chip, and up to 18 hours of battery life. Perfect for professionals and creators.',
+                inStock: true
+            },
+            'smartwatch-5': {
+                name: 'SmartWatch 5',
+                fullName: 'SmartWatch 5 Series',
+                price: '$399.00',
+                image: 'SmartWatch.jpg',
+                category: 'Electronics',
+                vendor: 'TechWorld Official',
+                vendorLink: 'vendor-profile.html?vendor=techworld',
+                description: 'Stay connected and track your fitness with the SmartWatch 5. Features heart rate monitoring, GPS, water resistance, and a vibrant always-on display.',
+                inStock: true
+            },
+            'denim-jacket': {
+                name: 'Denim Jacket',
+                fullName: 'Denim Jacket Classic',
+                price: '$85.00',
+                image: 'https://images.pexels.com/photos/35012892/pexels-photo-35012892.jpeg?auto=compress&cs=tinysrgb&w=800',
+                category: 'Fashion',
+                vendor: 'UrbanStyle',
+                vendorLink: 'vendor-profile.html?vendor=urbanstyle',
+                description: 'Classic style that never fades. Premium cotton blend denim jacket with a timeless design. Perfect for layering in any season.',
+                inStock: true
+            },
+            'classic-t-shirt': {
+                name: 'Classic T-Shirt',
+                fullName: 'Classic T-Shirt Premium',
+                price: '$35.00',
+                image: 'ClassicTShirt.jpg',
+                category: 'Fashion',
+                vendor: 'UrbanStyle',
+                vendorLink: 'vendor-profile.html?vendor=urbanstyle',
+                description: 'Comfortable and versatile premium cotton t-shirt. Available in multiple colors. Perfect for everyday wear.',
+                inStock: true
+            },
+            'urban-sneakers': {
+                name: 'Urban Sneakers',
+                fullName: 'Urban Sneakers Pro',
+                price: '$120.00',
+                image: 'Air_Walkers.jpg',
+                category: 'Fashion',
+                vendor: 'UrbanStyle',
+                vendorLink: 'vendor-profile.html?vendor=urbanstyle',
+                description: 'Stylish and comfortable urban sneakers perfect for city life. Durable construction with modern design.',
+                inStock: true
+            },
+            'sonicbuds': {
+                name: 'SonicBuds',
+                fullName: 'SonicBuds Pro',
+                price: '$199.00',
+                image: 'https://images.pexels.com/photos/13813454/pexels-photo-13813454.jpeg?auto=compress&cs=tinysrgb&w=800',
+                category: 'Electronics',
+                vendor: 'AudioPhile',
+                vendorLink: 'vendor-profile.html?vendor=audiophile',
+                description: 'Immersive sound with active noise cancellation. Premium wireless earbuds with crystal-clear audio quality.',
+                inStock: true
+            },
+            'studio-headphones': {
+                name: 'Studio Headphones',
+                fullName: 'Studio Headphones Pro',
+                price: '$299.00',
+                image: 'StudioHeadphones.jpg',
+                category: 'Electronics',
+                vendor: 'AudioPhile',
+                vendorLink: 'vendor-profile.html?vendor=audiophile',
+                description: 'Professional-grade studio headphones with exceptional sound quality. Perfect for music production and critical listening.',
+                inStock: true
+            },
+            'wireless-speaker': {
+                name: 'Wireless Speaker',
+                fullName: 'Wireless Speaker Premium',
+                price: '$149.00',
+                image: 'WirelessSpeaker.jpg',
+                category: 'Electronics',
+                vendor: 'AudioPhile',
+                vendorLink: 'vendor-profile.html?vendor=audiophile',
+                description: 'Portable wireless speaker with 360-degree sound. Waterproof design perfect for outdoor adventures.',
+                inStock: true
+            },
+            'air-walkers': {
+                name: 'Air Walkers',
+                fullName: 'Air Walkers Running',
+                price: '$120.00',
+                image: 'Air_Walkers.jpg',
+                category: 'Fashion',
+                vendor: 'ShoeBox',
+                vendorLink: 'vendor-profile.html?vendor=shoebox',
+                description: 'Ultra-comfortable running shoes designed for speed. Lightweight construction with superior cushioning.',
+                inStock: true
+            },
+            'running-pro': {
+                name: 'Running Pro',
+                fullName: 'Running Pro Elite',
+                price: '$95.00',
+                image: 'RunningPro.jpg',
+                category: 'Fashion',
+                vendor: 'ShoeBox',
+                vendorLink: 'vendor-profile.html?vendor=shoebox',
+                description: 'Professional running shoes with advanced cushioning technology. Designed for serious runners.',
+                inStock: true
+            },
+            'casual-sneakers': {
+                name: 'Casual Sneakers',
+                fullName: 'Casual Sneakers Classic',
+                price: '$75.00',
+                image: 'CasualSneakers.jpg',
+                category: 'Fashion',
+                vendor: 'ShoeBox',
+                vendorLink: 'vendor-profile.html?vendor=shoebox',
+                description: 'Comfortable everyday sneakers with timeless design. Perfect for casual wear and light activities.',
+                inStock: true
+            },
+            'brewmaster-3000': {
+                name: 'BrewMaster 3000',
+                fullName: 'BrewMaster 3000 Coffee Maker',
+                price: '$150.00',
+                image: 'https://images.pexels.com/photos/714563/pexels-photo-714563.jpeg?auto=compress&cs=tinysrgb&w=800',
+                category: 'Home',
+                vendor: 'KitchenPlus',
+                vendorLink: 'vendor-profile.html?vendor=kitchenplus',
+                description: 'Programmable drip coffee maker for the perfect morning brew. Large capacity with timer and auto-shutoff.',
+                inStock: true
+            },
+            'modern-desk-lamp': {
+                name: 'Modern Desk Lamp',
+                fullName: 'Modern Desk Lamp LED',
+                price: '$45.00',
+                image: 'https://images.pexels.com/photos/4884118/pexels-photo-4884118.jpeg?auto=compress&cs=tinysrgb&w=800',
+                category: 'Home',
+                vendor: 'KitchenPlus',
+                vendorLink: 'vendor-profile.html?vendor=kitchenplus',
+                description: 'Adjustable LED brightness with touch controls. Modern design perfect for any workspace.',
+                inStock: true
+            },
+            'ceramic-planter': {
+                name: 'Ceramic Planter',
+                fullName: 'Ceramic Planter Set',
+                price: '$30.00',
+                image: 'https://images.pexels.com/photos/2130570/pexels-photo-2130570.jpeg?auto=compress&cs=tinysrgb&w=800',
+                category: 'Home',
+                vendor: 'KitchenPlus',
+                vendorLink: 'vendor-profile.html?vendor=kitchenplus',
+                description: 'Handcrafted minimal design for indoor plants. Beautiful ceramic finish with drainage holes.',
+                inStock: true
+            },
+            'abstract-canvas': {
+                name: 'Abstract Canvas',
+                fullName: 'Abstract Canvas Art',
+                price: '$250.00',
+                image: 'https://images.pexels.com/photos/7577822/pexels-photo-7577822.jpeg?auto=compress&cs=tinysrgb&w=800',
+                category: 'Art',
+                vendor: 'ArtsyStudio',
+                vendorLink: 'vendor-profile.html?vendor=artsystudio',
+                description: 'Original acrylic painting on stretched canvas. Unique abstract design that adds character to any space.',
+                inStock: true
+            },
+            'digital-print': {
+                name: 'Digital Print',
+                fullName: 'Digital Print Cyber City',
+                price: '$40.00',
+                image: 'https://images.pexels.com/photos/33459151/pexels-photo-33459151.jpeg?auto=compress&cs=tinysrgb&w=800',
+                category: 'Art',
+                vendor: 'ArtsyStudio',
+                vendorLink: 'vendor-profile.html?vendor=artsystudio',
+                description: 'High-resolution print of "Cyber City" concept art. Vibrant colors on premium paper.',
+                inStock: true
+            },
+            'modern-sculpture': {
+                name: 'Modern Sculpture',
+                fullName: 'Modern Sculpture Abstract',
+                price: '$180.00',
+                image: 'https://images.pexels.com/photos/7307272/pexels-photo-7307272.jpeg?auto=compress&cs=tinysrgb&w=800',
+                category: 'Art',
+                vendor: 'ArtsyStudio',
+                vendorLink: 'vendor-profile.html?vendor=artsystudio',
+                description: 'Bronze finish abstract desktop sculpture. Modern minimalist design perfect for contemporary spaces.',
+                inStock: true
+            },
+            'indoor-plant-set': {
+                name: 'Indoor Plant Set',
+                fullName: 'Indoor Plant Set Collection',
+                price: '$55.00',
+                image: 'IndoorPlantSet.jpg',
+                category: 'Home',
+                vendor: 'GreenThumb',
+                vendorLink: 'vendor-profile.html?vendor=greenthumb',
+                description: 'Curated set of easy-care indoor plants perfect for beginners. Includes care instructions.',
+                inStock: true
+            },
+            'garden-tools': {
+                name: 'Garden Tools',
+                fullName: 'Garden Tools Essential Set',
+                price: '$45.00',
+                image: 'GardenTools.jpg',
+                category: 'Home',
+                vendor: 'GreenThumb',
+                vendorLink: 'vendor-profile.html?vendor=greenthumb',
+                description: 'Essential gardening tool set with ergonomic handles. Perfect for maintaining your garden.',
+                inStock: true
+            },
+            'aviator-shades': {
+                name: 'Aviator Shades',
+                fullName: 'Aviator Shades Classic',
+                price: '$150.00',
+                image: 'https://images.pexels.com/photos/845247/pexels-photo-845247.jpeg?auto=compress&cs=tinysrgb&w=800',
+                category: 'Fashion',
+                vendor: 'SunnyDays',
+                vendorLink: 'vendor-profile.html?vendor=sunnydays',
+                description: 'Polarized lenses with a timeless gold frame. Classic aviator style with UV protection.',
+                inStock: true
+            },
+            'wayfarer-classic': {
+                name: 'Wayfarer Classic',
+                fullName: 'Wayfarer Classic Sunglasses',
+                price: '$120.00',
+                image: 'WayfarerClassic.jpg',
+                category: 'Fashion',
+                vendor: 'SunnyDays',
+                vendorLink: 'vendor-profile.html?vendor=sunnydays',
+                description: 'Iconic wayfarer design with polarized lenses. Timeless style that never goes out of fashion.',
+                inStock: true
+            },
+            'sport-sunglasses': {
+                name: 'Sport Sunglasses',
+                fullName: 'Sport Sunglasses Pro',
+                price: '$95.00',
+                image: 'SportSunglasses.jpg',
+                category: 'Fashion',
+                vendor: 'SunnyDays',
+                vendorLink: 'vendor-profile.html?vendor=sunnydays',
+                description: 'Durable sport sunglasses with wrap-around design. Perfect for outdoor activities and sports.',
+                inStock: true
+            }
+        };
+
+        // Load product data based on URL parameter
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product') || 'prophone-x';
+            const product = products[productId] || products['prophone-x'];
+
+            // Update page title
+            document.title = `${product.name} - MarketVibe`;
+
+            // Update hero title
+            const heroTitle = document.getElementById('product-hero-title');
+            if (heroTitle) {
+                heroTitle.textContent = product.name;
+            }
+
+            // Update product name
+            const productName = document.querySelector('h2.text-2xl');
+            if (productName) {
+                productName.textContent = product.fullName;
+            }
+
+            // Update vendor link
+            const vendorLink = document.querySelector('a[href="vendor-profile.html"]');
+            if (vendorLink) {
+                vendorLink.textContent = product.vendor;
+                vendorLink.href = product.vendorLink;
+            }
+
+            // Update price
+            const priceElement = document.querySelector('.text-3xl.md\\:text-4xl.font-bold.text-primary');
+            if (priceElement) {
+                priceElement.textContent = product.price;
+            }
+
+            // Update description
+            const description = document.querySelector('p.text-gray-600.dark\\:text-gray-400.leading-relaxed');
+            if (description) {
+                description.textContent = product.description;
+            }
+
+            // Update main product image
+            const mainImageContainer = document.querySelector('.bg-gray-100.dark\\:bg-gray-800.rounded-xl.h-80');
+            if (mainImageContainer) {
+                mainImageContainer.innerHTML = `<img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover rounded-xl">`;
+            }
+
+            // Update thumbnail images
+            const thumbnails = document.querySelectorAll('.grid.grid-cols-4 .bg-gray-50');
+            thumbnails.forEach((thumb, index) => {
+                if (index === 0) {
+                    thumb.classList.add('border-2', 'border-primary');
+                }
+                thumb.innerHTML = `<img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover rounded-lg">`;
+            });
+
+            // Reinitialize Lucide icons
+            lucide.createIcons();
+        });
+    </script>
 </body>
 </html>
