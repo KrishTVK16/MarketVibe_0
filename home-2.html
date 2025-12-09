@@ -112,23 +112,40 @@
     <main class="flex-grow pt-16">
         
         <!-- Hero Section with Background Image -->
-        <section class="h-[45vh] md:h-[50vh] relative flex items-center justify-center overflow-hidden">
-            <!-- Background Image -->
+        <section class="min-h-[85vh] md:min-h-[90vh] relative flex items-center justify-center overflow-hidden">
+            <!-- Background Image with Parallax Effect -->
             <div class="absolute inset-0">
-                <img src="home2HeroImage.png" alt="Fashion Hero" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20"></div>
-                <div class="absolute inset-0 bg-black/30 dark:bg-black/50"></div>
+                <img src="home2HeroImage.png" alt="Fashion Hero" class="w-full h-full object-cover scale-110 transition-transform duration-700 hover:scale-100">
+                <!-- Multi-layer Gradient Overlays -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-primary/30 via-purple-600/20 to-accent/30"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div>
             </div>
+            
+            <!-- Animated Light Rays -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white/20 to-transparent animate-pulse"></div>
+                <div class="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-white/15 to-transparent animate-pulse animation-delay-2000"></div>
+            </div>
+            
+            <!-- Floating Glow Orbs -->
+            <div class="absolute top-20 right-20 w-64 h-64 bg-primary/10 rounded-full filter blur-3xl animate-blob opacity-60"></div>
+            <div class="absolute bottom-20 left-20 w-64 h-64 bg-accent/10 rounded-full filter blur-3xl animate-blob animation-delay-3000 opacity-60"></div>
+            
             <!-- Content -->
-            <div class="relative z-10 w-full px-5 md:p-8 lg:p-12 py-8 md:py-12 flex flex-col justify-center items-center text-center">
-                <span class="text-accent font-bold tracking-wider uppercase mb-3 md:mb-4 text-sm md:text-base lg:text-lg">Summer Collection 2025</span>
-                <h1 class="text-3xl md:text-5xl lg:text-6xl font-black mb-4 md:mb-6 leading-tight text-white">
-                    Style That <br>
-                    <span class="text-primary" style="white-space: nowrap;">Speaks Volume.</span>
-                </h1>
-                <p class="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl">
-                    Upgrade your wardrobe with our exclusive selection of premium fashion items from top independent designers.
-                </p>
+            <div class="relative z-10 w-full px-5 md:p-8 lg:p-12 py-12 md:py-20 flex flex-col justify-center items-center text-center">
+                <div class="animate-fade-in-up">
+                    <span class="inline-block text-accent font-bold tracking-wider uppercase mb-4 md:mb-6 text-sm md:text-base lg:text-lg px-4 py-2 bg-white/10 dark:bg-white/5 backdrop-blur-md rounded-full border border-white/20 shadow-lg">
+                        Summer Collection 2025
+                    </span>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 md:mb-8 leading-tight text-white drop-shadow-2xl">
+                        Style That <br class="hidden md:block" />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-accent inline-block animate-gradient" style="white-space: nowrap;">Speaks Volume.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl lg:text-2xl text-white/95 max-w-3xl leading-relaxed drop-shadow-lg backdrop-blur-sm px-4">
+                        Upgrade your wardrobe with our exclusive selection of premium fashion items from top independent designers.
+                    </p>
+                </div>
             </div>
         </section>
 
@@ -218,6 +235,368 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Trending Products -->
+        <section class="py-16 bg-gradient-to-b from-white to-gray-50 dark:from-dark-bg dark:to-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="inline-block text-accent font-bold tracking-wider uppercase mb-3 text-sm">Hot Right Now</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Trending Products</h2>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Discover what everyone's talking about this week</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Product 1 -->
+                    <div class="bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Trending Product" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <span class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">-30%</span>
+                            <button class="absolute top-4 right-4 p-2 bg-white/90 dark:bg-gray-800/90 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i data-lucide="heart" class="w-5 h-5 text-gray-700 dark:text-gray-200"></i>
+                            </button>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Wireless Earbuds Pro</h3>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-2xl font-bold text-primary">$89</span>
+                                    <span class="text-gray-400 line-through ml-2">$129</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Trending Product" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <span class="absolute top-4 left-4 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">New</span>
+                            <button class="absolute top-4 right-4 p-2 bg-white/90 dark:bg-gray-800/90 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i data-lucide="heart" class="w-5 h-5 text-gray-700 dark:text-gray-200"></i>
+                            </button>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Designer Sunglasses</h3>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-2xl font-bold text-primary">$149</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.9</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Trending Product" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <span class="absolute top-4 left-4 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">Bestseller</span>
+                            <button class="absolute top-4 right-4 p-2 bg-white/90 dark:bg-gray-800/90 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i data-lucide="heart" class="w-5 h-5 text-gray-700 dark:text-gray-200"></i>
+                            </button>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Smart Watch Series 9</h3>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-2xl font-bold text-primary">$299</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.7</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="bg-white dark:bg-dark-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group">
+                        <div class="relative overflow-hidden">
+                            <img src="https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Trending Product" class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500">
+                            <span class="absolute top-4 left-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">Hot</span>
+                            <button class="absolute top-4 right-4 p-2 bg-white/90 dark:bg-gray-800/90 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                                <i data-lucide="heart" class="w-5 h-5 text-gray-700 dark:text-gray-200"></i>
+                            </button>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white mb-2">Leather Backpack</h3>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <span class="text-2xl font-bold text-primary">$179</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.6</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-10">
+                    <a href="market.html" class="btn-hover inline-flex items-center px-8 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-colors shadow-lg">
+                        View All Trending <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="py-16 bg-white dark:bg-dark-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">How It Works</h2>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Get started in three simple steps</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Step 1 -->
+                    <div class="text-center group">
+                        <div class="relative inline-block mb-6">
+                            <div class="w-24 h-24 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-xl group-hover:scale-110 transition-transform duration-300">
+                                1
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+                                <i data-lucide="check" class="w-5 h-5 text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Browse & Discover</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Explore thousands of products from verified vendors across multiple categories.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="text-center group">
+                        <div class="relative inline-block mb-6">
+                            <div class="w-24 h-24 bg-gradient-to-br from-accent to-orange-500 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-xl group-hover:scale-110 transition-transform duration-300">
+                                2
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                <i data-lucide="shopping-cart" class="w-5 h-5 text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Add to Cart</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Select your favorite items and add them to your cart. Mix and match from different vendors.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="text-center group">
+                        <div class="relative inline-block mb-6">
+                            <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-xl group-hover:scale-110 transition-transform duration-300">
+                                3
+                            </div>
+                            <div class="absolute -top-2 -right-2 w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+                                <i data-lucide="credit-card" class="w-5 h-5 text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Secure Checkout</h3>
+                        <p class="text-gray-600 dark:text-gray-400">Complete your purchase with our secure payment system. Track your order in real-time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Spotlight -->
+        <section class="py-16 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-dark-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="inline-block text-primary font-bold tracking-wider uppercase mb-3 text-sm">Featured</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Brand Spotlight</h2>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Meet our top-rated vendors and discover their unique collections</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Brand 1 -->
+                    <div class="bg-white dark:bg-dark-card rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 group">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-primary to-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 group-hover:scale-110 transition-transform">
+                                TW
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl text-gray-900 dark:text-white">TechWorld</h3>
+                                <div class="flex items-center">
+                                    <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.9 (2.1k)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">Premium electronics and tech accessories from leading manufacturers.</p>
+                        <a href="vendors.html" class="btn-hover inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
+                            Visit Store <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                    <!-- Brand 2 -->
+                    <div class="bg-white dark:bg-dark-card rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 group">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 group-hover:scale-110 transition-transform">
+                                FS
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl text-gray-900 dark:text-white">Fashion Studio</h3>
+                                <div class="flex items-center">
+                                    <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.8 (1.5k)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">Trendy fashion pieces and designer collections for every style.</p>
+                        <a href="vendors.html" class="btn-hover inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
+                            Visit Store <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                    <!-- Brand 3 -->
+                    <div class="bg-white dark:bg-dark-card rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-gray-800 group">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 group-hover:scale-110 transition-transform">
+                                HG
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl text-gray-900 dark:text-white">Home & Garden</h3>
+                                <div class="flex items-center">
+                                    <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-current"></i>
+                                    <span class="text-sm text-gray-600 dark:text-gray-400 ml-1">4.7 (980)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">Everything you need to transform your living space into a haven.</p>
+                        <a href="vendors.html" class="btn-hover inline-flex items-center text-primary font-semibold hover:text-primary-dark transition-colors">
+                            Visit Store <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Style Guide / Lookbook -->
+        <section class="py-16 bg-white dark:bg-dark-bg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Style Inspiration</h2>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Get inspired by our curated style collections</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <!-- Look 1 -->
+                    <div class="relative group overflow-hidden rounded-2xl h-80 cursor-pointer">
+                        <img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Style Look" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-white font-bold text-xl mb-2">Summer Vibes</h3>
+                                <p class="text-white/90 text-sm">Light & Fresh Collection</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Look 2 -->
+                    <div class="relative group overflow-hidden rounded-2xl h-80 cursor-pointer">
+                        <img src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Style Look" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-white font-bold text-xl mb-2">Urban Edge</h3>
+                                <p class="text-white/90 text-sm">Street Style Essentials</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Look 3 -->
+                    <div class="relative group overflow-hidden rounded-2xl h-80 cursor-pointer md:col-span-2">
+                        <img src="https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Style Look" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-white font-bold text-2xl mb-2">Minimalist Chic</h3>
+                                <p class="text-white/90">Timeless Elegance Collection</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Look 4 -->
+                    <div class="relative group overflow-hidden rounded-2xl h-80 cursor-pointer md:col-span-2">
+                        <img src="https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Style Look" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-white font-bold text-2xl mb-2">Bold & Beautiful</h3>
+                                <p class="text-white/90">Statement Pieces Collection</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Look 5 -->
+                    <div class="relative group overflow-hidden rounded-2xl h-80 cursor-pointer">
+                        <img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Style Look" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-white font-bold text-xl mb-2">Casual Comfort</h3>
+                                <p class="text-white/90 text-sm">Everyday Essentials</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Look 6 -->
+                    <div class="relative group overflow-hidden rounded-2xl h-80 cursor-pointer">
+                        <img src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Style Look" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">
+                            <div>
+                                <h3 class="text-white font-bold text-xl mb-2">Evening Glam</h3>
+                                <p class="text-white/90 text-sm">Night Out Collection</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gift Ideas -->
+        <section class="py-16 bg-gradient-to-br from-primary/5 via-purple-50 to-accent/5 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="inline-block text-accent font-bold tracking-wider uppercase mb-3 text-sm">Perfect For</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Gift Ideas</h2>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Thoughtful gifts for every occasion and person</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Gift Category 1 -->
+                    <a href="market.html" class="bg-white dark:bg-dark-card rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-800">
+                        <div class="w-16 h-16 bg-pink-100 dark:bg-pink-900/20 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                            <i data-lucide="heart" class="w-8 h-8 text-pink-500"></i>
+                        </div>
+                        <h3 class="text-center font-bold text-lg text-gray-900 dark:text-white mb-2">For Her</h3>
+                        <p class="text-center text-sm text-gray-600 dark:text-gray-400">Jewelry, Fashion & Beauty</p>
+                    </a>
+                    <!-- Gift Category 2 -->
+                    <a href="market.html" class="bg-white dark:bg-dark-card rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-800">
+                        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                            <i data-lucide="briefcase" class="w-8 h-8 text-blue-500"></i>
+                        </div>
+                        <h3 class="text-center font-bold text-lg text-gray-900 dark:text-white mb-2">For Him</h3>
+                        <p class="text-center text-sm text-gray-600 dark:text-gray-400">Tech, Accessories & More</p>
+                    </a>
+                    <!-- Gift Category 3 -->
+                    <a href="market.html" class="bg-white dark:bg-dark-card rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-800">
+                        <div class="w-16 h-16 bg-yellow-100 dark:bg-yellow-900/20 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                            <i data-lucide="gift" class="w-8 h-8 text-yellow-500"></i>
+                        </div>
+                        <h3 class="text-center font-bold text-lg text-gray-900 dark:text-white mb-2">Anniversary</h3>
+                        <p class="text-center text-sm text-gray-600 dark:text-gray-400">Romantic & Special Gifts</p>
+                    </a>
+                    <!-- Gift Category 4 -->
+                    <a href="market.html" class="bg-white dark:bg-dark-card rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-gray-800">
+                        <div class="w-16 h-16 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
+                            <i data-lucide="cake" class="w-8 h-8 text-green-500"></i>
+                        </div>
+                        <h3 class="text-center font-bold text-lg text-gray-900 dark:text-white mb-2">Birthday</h3>
+                        <p class="text-center text-sm text-gray-600 dark:text-gray-400">Fun & Memorable Presents</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="py-16 bg-gradient-to-r from-primary via-purple-600 to-accent text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 40px 40px;"></div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <i data-lucide="mail" class="w-16 h-16 mx-auto mb-6 opacity-80"></i>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay in the Loop</h2>
+                <p class="text-lg text-white/90 mb-8 max-w-2xl mx-auto">Subscribe to our newsletter and get exclusive deals, style tips, and new arrivals delivered to your inbox.</p>
+                <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-4 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/50">
+                    <button type="submit" class="btn-hover px-8 py-4 bg-white text-primary font-bold rounded-xl hover:bg-gray-100 transition-colors shadow-lg whitespace-nowrap">
+                        Subscribe
+                    </button>
+                </form>
+                <p class="text-sm text-white/70 mt-4">We respect your privacy. Unsubscribe at any time.</p>
             </div>
         </section>
 
