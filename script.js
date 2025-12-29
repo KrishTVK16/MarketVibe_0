@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Dark Mode Logic ---
   const themeToggleBtns = document.querySelectorAll('.theme-toggle');
   const htmlElement = document.documentElement;
-  
+
   // Check local storage or system preference
   const savedTheme = localStorage.getItem('theme');
   const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
+
   if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
     htmlElement.classList.add('dark');
     updateIcons(true);
@@ -56,12 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (mobileHomeBtn && mobileHomeSubmenu) {
     mobileHomeBtn.addEventListener('click', (e) => {
-        // Prevent event from bubbling if needed, though usually fine here
-        e.preventDefault();
-        mobileHomeSubmenu.classList.toggle('hidden');
-        if (mobileHomeChevron) {
-            mobileHomeChevron.classList.toggle('rotate-180');
-        }
+      // Prevent event from bubbling if needed, though usually fine here
+      e.preventDefault();
+      mobileHomeSubmenu.classList.toggle('hidden');
+      if (mobileHomeChevron) {
+        mobileHomeChevron.classList.toggle('rotate-180');
+      }
     });
   }
 
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Active Link Highlighting ---
   const currentPath = window.location.pathname;
   const navLinks = document.querySelectorAll('.nav-link');
-  
+
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
     let isActive = false;
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Back to Top Button ---
   const backToTopBtn = document.getElementById('back-to-top');
-  
+
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const message = document.getElementById('message').value.trim();
       const honeypot = document.getElementById('honeypot').checked;
 
-      if (honeypot) return; 
+      if (honeypot) return;
 
       if (!name || !email || !message) {
         alert('Please fill in all required fields.');
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
           b.classList.remove('bg-primary', 'text-white');
           b.classList.add('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
         });
-        
+
         // Add active class to clicked
         btn.classList.remove('bg-gray-100', 'dark:bg-gray-800', 'text-gray-700', 'dark:text-gray-300');
         btn.classList.add('bg-primary', 'text-white');
@@ -186,4 +186,135 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // --- Account Dropdown & Role Switching ---
+  // Get stored role or default to 'user'
+  let currentRole = localStorage.getItem('userRole') || 'user';
+  updateRoleUI();
+
+  // Desktop Account Dropdown Toggle
+  const desktopAccountBtn = document.getElementById('desktop-account-btn');
+  const desktopAccountMenu = document.getElementById('desktop-account-menu');
+
+  if (desktopAccountBtn && desktopAccountMenu) {
+    desktopAccountBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      desktopAccountMenu.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!desktopAccountBtn.contains(e.target) && !desktopAccountMenu.contains(e.target)) {
+        desktopAccountMenu.classList.add('hidden');
+      }
+    });
+  }
+
+  // Desktop Switch Role
+  const desktopSwitchRole = document.getElementById('desktop-switch-role');
+  if (desktopSwitchRole) {
+    desktopSwitchRole.addEventListener('click', () => {
+      // Switch the role
+      currentRole = currentRole === 'user' ? 'admin' : 'user';
+      localStorage.setItem('userRole', currentRole);
+      // Navigate to dashboard
+      window.location.href = 'dashboard.html';
+    });
+  }
+
+  // Mobile Switch Role
+  const mobileSwitchRole = document.getElementById('mobile-switch-role');
+  if (mobileSwitchRole) {
+    mobileSwitchRole.addEventListener('click', () => {
+      currentRole = currentRole === 'user' ? 'admin' : 'user';
+      localStorage.setItem('userRole', currentRole);
+      updateRoleUI();
+    });
+  }
+
+  // Update Role UI function
+  function updateRoleUI() {
+    // Desktop
+    const desktopRoleText = document.getElementById('desktop-role-text');
+    const desktopRoleIcon = document.getElementById('desktop-role-icon');
+    const desktopSwitchText = document.getElementById('desktop-switch-text');
+
+    // Mobile
+    const mobileRoleText = document.getElementById('mobile-role-text');
+    const mobileRoleIcon = document.getElementById('mobile-role-icon');
+
+    const isAdmin = currentRole === 'admin';
+    const roleText = isAdmin ? 'Admin' : 'User';
+    const switchToText = isAdmin ? 'User' : 'Admin';
+    const iconName = isAdmin ? 'shield' : 'user';
+
+    // Update desktop
+    if (desktopRoleText) desktopRoleText.textContent = roleText;
+    if (desktopSwitchText) desktopSwitchText.textContent = switchToText;
+    if (desktopRoleIcon) desktopRoleIcon.setAttribute('data-lucide', iconName);
+
+    // Update mobile
+    if (mobileRoleText) mobileRoleText.textContent = roleText;
+    if (mobileRoleIcon) mobileRoleIcon.setAttribute('data-lucide', iconName);
+
+    // Update mobile switch text
+    const mobileSwitchText = document.getElementById('mobile-switch-text');
+    if (mobileSwitchText) mobileSwitchText.textContent = switchToText;
+
+    // Re-initialize icons
+    lucide.createIcons();
+  }
+
+  // Mobile Dashboard Accordion
+  const mobileDashboardBtn = document.getElementById('mobile-dashboard-btn');
+  const mobileDashboardSubmenu = document.getElementById('mobile-dashboard-submenu');
+  const mobileDashboardChevron = document.getElementById('mobile-dashboard-chevron');
+
+  if (mobileDashboardBtn && mobileDashboardSubmenu) {
+    mobileDashboardBtn.addEventListener('click', () => {
+      const isHidden = mobileDashboardSubmenu.classList.contains('hidden');
+      mobileDashboardSubmenu.classList.toggle('hidden');
+      if (mobileDashboardChevron) {
+        mobileDashboardChevron.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+      }
+    });
+  }
+
+  // Mobile Role Switch
+  const mobileRoleSwitch = document.getElementById('mobile-role-switch');
+  if (mobileRoleSwitch) {
+    mobileRoleSwitch.addEventListener('click', () => {
+      currentRole = currentRole === 'user' ? 'admin' : 'user';
+      localStorage.setItem('userRole', currentRole);
+      // Navigate to dashboard after role switch
+      window.location.href = 'dashboard.html';
+    });
+  }
+
+  // Logout functionality
+  const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
+  if (mobileLogoutBtn) {
+    mobileLogoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('isLoggedIn');
+      window.location.href = 'index.html';
+    });
+  }
+
+  // Update mobile theme status
+  function updateMobileThemeStatus() {
+    const mobileThemeStatus = document.getElementById('mobile-theme-status');
+    if (mobileThemeStatus) {
+      const isDark = htmlElement.classList.contains('dark');
+      mobileThemeStatus.textContent = isDark ? 'Dark' : 'Light';
+    }
+  }
+
+  // Call initial update
+  updateMobileThemeStatus();
+
+  // Update theme status on toggle
+  themeToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      setTimeout(updateMobileThemeStatus, 100);
+    });
+  });
 });

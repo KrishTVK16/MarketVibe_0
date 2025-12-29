@@ -1,35 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - MarketVibe</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237c3aed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z'/%3E%3Cline x1='3' y1='6' x2='21' y2='6'/%3E%3Cpath d='M16 10a4 4 0 0 1-8 0'/%3E%3C/svg%3E" />
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237c3aed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z'/%3E%3Cline x1='3' y1='6' x2='21' y2='6'/%3E%3Cpath d='M16 10a4 4 0 0 1-8 0'/%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              primary: { DEFAULT: '#7c3aed', dark: '#6d28d9', light: '#a78bfa' },
-              accent: { DEFAULT: '#f59e0b', dark: '#d97706' },
-              dark: { bg: '#0f172a', card: '#1e293b', text: '#f1f5f9' }
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#7c3aed', dark: '#6d28d9', light: '#a78bfa' },
+                        accent: { DEFAULT: '#f59e0b', dark: '#d97706' },
+                        dark: { bg: '#0f172a', card: '#1e293b', text: '#f1f5f9' }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                },
             },
-            fontFamily: { sans: ['Inter', 'sans-serif'] },
-          },
-        },
-      }
+        }
     </script>
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-gradient-to-br from-purple-50 via-white to-amber-50 text-slate-900 dark:from-dark-bg dark:via-dark-bg dark:to-slate-900 dark:text-dark-text transition-colors duration-300 flex flex-col min-h-screen">
+
+<body
+    class="bg-gradient-to-br from-purple-50 via-white to-amber-50 text-slate-900 dark:from-dark-bg dark:via-dark-bg dark:to-slate-900 dark:text-dark-text transition-colors duration-300 flex flex-col min-h-screen">
     <!-- Header -->
-    <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-dark-bg/80 border-b border-gray-200 dark:border-gray-800">
+    <header
+        class="fixed top-0 w-full z-50 bg-white/80 dark:bg-dark-bg/80 border-b border-gray-200 dark:border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-14 md:h-16">
                 <a href="index.html" class="flex items-center space-x-2 flex-shrink-0 group">
@@ -38,44 +43,84 @@
                     </div>
                     <span class="font-bold text-lg md:text-xl text-primary whitespace-nowrap">MarketVibe</span>
                 </a>
-                
+
                 <!-- Desktop Nav -->
                 <nav class="hidden lg:flex items-center space-x-6 lg:space-x-8">
                     <!-- Home Dropdown -->
                     <div class="relative">
-                        <button id="desktop-home-btn" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200 flex items-center focus:outline-none">
+                        <button id="desktop-home-btn"
+                            class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200 flex items-center focus:outline-none">
                             Home <i data-lucide="chevron-down" class="ml-1 w-4 h-4"></i>
                         </button>
-                        <div id="desktop-home-menu" class="absolute left-0 mt-2 w-48 bg-white dark:bg-dark-card rounded-md shadow-lg border border-gray-100 dark:border-gray-800 hidden z-50">
-                            <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary">Classic Home</a>
-                            <a href="home-2.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary">Modern Home</a>
+                        <div id="desktop-home-menu"
+                            class="absolute left-0 mt-2 w-48 bg-white dark:bg-dark-card rounded-md shadow-lg border border-gray-100 dark:border-gray-800 hidden z-50">
+                            <a href="index.html"
+                                class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary">Classic
+                                Home</a>
+                            <a href="home-2.html"
+                                class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary">Modern
+                                Home</a>
                         </div>
                     </div>
 
-                    <a href="market.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Shop</a>
-                    <a href="vendors.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Vendors</a>
-                    <a href="about.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">About</a>
-                    <a href="contact.html" class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Contact</a>
-                    
+                    <a href="market.html"
+                        class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Shop</a>
+                    <a href="vendors.html"
+                        class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Vendors</a>
+                    <a href="about.html"
+                        class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">About</a>
+                    <a href="contact.html"
+                        class="nav-link text-sm font-medium transition-colors hover:text-primary text-gray-700 dark:text-gray-200">Contact</a>
+
                     <div class="h-6 w-px bg-gray-200 dark:bg-gray-700 mx-2"></div>
 
-                    <button class="theme-toggle p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" aria-label="Toggle Dark Mode">
+                    <!-- Dashboard Dropdown -->
+                    <div class="relative">
+                        <button id="desktop-account-btn"
+                            class="flex items-center space-x-2 px-4 py-2 rounded-lg bg-primary text-white hover:bg-primary-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary shadow-md">
+                            <span class="text-sm font-semibold">Dashboard</span>
+                            <i data-lucide="chevron-down" class="ml-1 w-4 h-4"></i>
+                        </button>
+                        <div id="desktop-account-menu"
+                            class="absolute right-0 mt-2 w-56 bg-white dark:bg-dark-card rounded-lg shadow-xl border border-gray-100 dark:border-gray-800 hidden z-50 overflow-hidden">
+                            <a id="desktop-current-role" href="dashboard.html"
+                                class="flex items-center space-x-3 px-4 py-3 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary transition-colors border-b border-gray-100 dark:border-gray-700">
+                                <i id="desktop-role-icon" data-lucide="user" class="h-5 w-5 text-primary"></i>
+                                <span id="desktop-role-text" class="font-medium">User</span>
+                            </a>
+                            <button id="desktop-switch-role"
+                                class="w-full flex items-center space-x-3 px-4 py-3 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary transition-colors text-left">
+                                <i data-lucide="refresh-cw" class="h-4 w-4"></i>
+                                <span>Switch to <span id="desktop-switch-text" class="font-medium">Admin</span></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button
+                        class="theme-toggle p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                        aria-label="Toggle Dark Mode">
                         <i data-lucide="sun" class="sun-icon h-5 w-5 hidden"></i>
                         <i data-lucide="moon" class="moon-icon h-5 w-5 block"></i>
                     </button>
 
                     <div class="flex items-center space-x-3">
-                        <a href="login.html" class="btn-hover px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" style="white-space: nowrap;">Log In</a>
-                        <a href="register.html" class="btn-hover px-4 py-2 rounded-full bg-primary text-white text-sm font-bold shadow-md hover:bg-primary-dark transition-colors" style="white-space: nowrap;">Sign Up</a>
+                        <a href="login.html"
+                            class="btn-hover px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                            style="white-space: nowrap;">Log In</a>
+                        <a href="register.html"
+                            class="btn-hover px-4 py-2 rounded-full bg-primary text-white text-sm font-bold shadow-md hover:bg-primary-dark transition-colors"
+                            style="white-space: nowrap;">Sign Up</a>
                     </div>
                 </nav>
 
                 <div class="flex lg:hidden items-center space-x-4">
-                    <button class="theme-toggle p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <button
+                        class="theme-toggle p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                         <i data-lucide="sun" class="sun-icon h-5 w-5 hidden"></i>
                         <i data-lucide="moon" class="moon-icon h-5 w-5 block"></i>
                     </button>
-                    <button id="mobile-menu-btn" class="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
+                    <button id="mobile-menu-btn"
+                        class="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">
                         <i data-lucide="menu" class="menu-icon h-6 w-6 block"></i>
                         <i data-lucide="x" class="close-icon h-6 w-6 hidden"></i>
                     </button>
@@ -86,26 +131,69 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="bg-white dark:bg-dark-bg border-b border-gray-200 dark:border-gray-800">
             <div class="px-4 pt-2 pb-4 space-y-1">
-                 <!-- Home Accordion -->
+                <!-- Home Accordion -->
                 <div>
-                    <button id="mobile-home-btn" class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none">
-                        Home <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200" id="mobile-home-chevron"></i>
+                    <button id="mobile-home-btn"
+                        class="w-full flex justify-between items-center px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none">
+                        Home <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-200"
+                            id="mobile-home-chevron"></i>
                     </button>
                     <div id="mobile-home-submenu" class="hidden pl-4 pb-2 space-y-1">
-                         <a href="index.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800">Classic Home</a>
-                         <a href="home-2.html" class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800">Modern Home</a>
+                        <a href="index.html"
+                            class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800">Classic
+                            Home</a>
+                        <a href="home-2.html"
+                            class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800">Modern
+                            Home</a>
                     </div>
                 </div>
 
-                <a href="market.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Shop</a>
-                <a href="vendors.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Vendors</a>
-                <a href="about.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">About</a>
-                <a href="contact.html" class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
-                
+                <a href="market.html"
+                    class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Shop</a>
+                <a href="vendors.html"
+                    class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Vendors</a>
+                <a href="about.html"
+                    class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">About</a>
+                <a href="contact.html"
+                    class="nav-link block px-3 py-2 rounded-md text-base font-medium transition-colors text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
+
+                <!-- Dashboard Accordion -->
+                <div class="pt-4 mt-2 border-t border-gray-100 dark:border-gray-800">
+                    <button id="mobile-dashboard-btn"
+                        class="w-full flex items-center justify-between px-3 py-3 bg-primary/10 dark:bg-primary/20 rounded-lg hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                                <i id="mobile-role-icon" data-lucide="user" class="h-5 w-5 text-primary"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-600 dark:text-gray-400">Logged in as</p>
+                                <p id="mobile-role-text" class="text-sm font-bold text-gray-900 dark:text-white">User
+                                </p>
+                            </div>
+                        </div>
+                        <i data-lucide="chevron-down" class="h-5 w-5 text-primary transition-transform duration-200"
+                            id="mobile-dashboard-chevron"></i>
+                    </button>
+                    <div id="mobile-dashboard-submenu" class="hidden pl-4 mt-2 space-y-1">
+                        <a href="login.html"
+                            class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800">Login</a>
+                        <a href="register.html"
+                            class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800">Sign
+                            Up</a>
+                        <button id="mobile-role-switch"
+                            class="w-full text-left block px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800">
+                            Switch to <span id="mobile-switch-text" class="font-semibold">Admin</span>
+                        </button>
+                    </div>
+                </div>
                 <!-- Login/Register Buttons -->
                 <div class="pt-4 mt-2 border-t border-gray-100 dark:border-gray-800 flex gap-3">
-                    <a href="login.html" class="btn-hover w-[35%] text-center px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-700 dark:text-gray-200 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-sm whitespace-nowrap overflow-hidden text-ellipsis">Log In</a>
-                    <a href="register.html" class="btn-hover w-[35%] text-center px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark shadow-sm transition-colors text-sm whitespace-nowrap overflow-hidden text-ellipsis">Sign Up</a>
+                    <a href="login.html"
+                        class="btn-hover w-[35%] text-center px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg text-gray-700 dark:text-gray-200 font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-sm whitespace-nowrap overflow-hidden text-ellipsis">Log
+                        In</a>
+                    <a href="register.html"
+                        class="btn-hover w-[35%] text-center px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark shadow-sm transition-colors text-sm whitespace-nowrap overflow-hidden text-ellipsis">Sign
+                        Up</a>
                 </div>
             </div>
         </div>
@@ -117,7 +205,9 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">About MarketVibe</h1>
                 <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
-                    MarketVibe is a next-generation multi-vendor marketplace dedicated to empowering small businesses and independent creators. We provide the tools for sellers to thrive and a curated, secure environment for buyers to find what they love.
+                    MarketVibe is a next-generation multi-vendor marketplace dedicated to empowering small businesses
+                    and independent creators. We provide the tools for sellers to thrive and a curated, secure
+                    environment for buyers to find what they love.
                 </p>
             </div>
         </section>
@@ -152,15 +242,24 @@
                 <div class="text-center mb-8">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Story</h2>
                 </div>
-                <div class="bg-white/80 dark:bg-dark-card p-8 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                <div
+                    class="bg-white/80 dark:bg-dark-card p-8 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm">
                     <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-                        Founded in 2020, MarketVibe was born from a simple idea: to create a marketplace where small businesses and independent creators could compete on a level playing field with larger corporations. We saw the challenges that small sellers faced—high fees, limited visibility, and complex platforms—and decided to build something better.
+                        Founded in 2020, MarketVibe was born from a simple idea: to create a marketplace where small
+                        businesses and independent creators could compete on a level playing field with larger
+                        corporations. We saw the challenges that small sellers faced—high fees, limited visibility, and
+                        complex platforms—and decided to build something better.
                     </p>
                     <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-                        Today, we're proud to support thousands of vendors across the globe, helping them reach customers they never could have reached before. Our platform combines cutting-edge technology with a human-centered approach, ensuring that every transaction is secure, every seller is supported, and every buyer finds exactly what they're looking for.
+                        Today, we're proud to support thousands of vendors across the globe, helping them reach
+                        customers they never could have reached before. Our platform combines cutting-edge technology
+                        with a human-centered approach, ensuring that every transaction is secure, every seller is
+                        supported, and every buyer finds exactly what they're looking for.
                     </p>
                     <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        We believe that commerce should be accessible, transparent, and empowering for everyone. That's why we're committed to continuously improving our platform, listening to our community, and building the future of online marketplaces together.
+                        We believe that commerce should be accessible, transparent, and empowering for everyone. That's
+                        why we're committed to continuously improving our platform, listening to our community, and
+                        building the future of online marketplaces together.
                     </p>
                 </div>
             </div>
@@ -170,23 +269,30 @@
         <section class="py-12 bg-white/50 dark:bg-dark-bg/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white dark:bg-dark-card p-8 rounded-xl border-l-4 border-primary shadow-lg border-y border-r border-gray-200 dark:border-gray-800">
+                    <div
+                        class="bg-white dark:bg-dark-card p-8 rounded-xl border-l-4 border-primary shadow-lg border-y border-r border-gray-200 dark:border-gray-800">
                         <div class="flex items-center mb-4">
                             <div class="p-3 bg-primary/10 rounded-lg mr-4">
                                 <i data-lucide="target" class="w-8 h-8 text-primary"></i>
                             </div>
                             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Our Mission</h2>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">To democratize e-commerce by lowering barriers for sellers and providing transparency and trust for buyers. We empower entrepreneurs to build successful businesses while ensuring customers have access to authentic, high-quality products.</p>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">To democratize e-commerce by
+                            lowering barriers for sellers and providing transparency and trust for buyers. We empower
+                            entrepreneurs to build successful businesses while ensuring customers have access to
+                            authentic, high-quality products.</p>
                     </div>
-                    <div class="bg-white dark:bg-dark-card p-8 rounded-xl border-l-4 border-accent shadow-lg border-y border-r border-gray-200 dark:border-gray-800">
+                    <div
+                        class="bg-white dark:bg-dark-card p-8 rounded-xl border-l-4 border-accent shadow-lg border-y border-r border-gray-200 dark:border-gray-800">
                         <div class="flex items-center mb-4">
                             <div class="p-3 bg-accent/10 rounded-lg mr-4">
                                 <i data-lucide="eye" class="w-8 h-8 text-accent"></i>
                             </div>
                             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Our Vision</h2>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">To be the world's most trusted community-driven marketplace, connecting cultures and economies through trade. We envision a future where anyone, anywhere can start and grow a successful online business.</p>
+                        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">To be the world's most trusted
+                            community-driven marketplace, connecting cultures and economies through trade. We envision a
+                            future where anyone, anywhere can start and grow a successful online business.</p>
                     </div>
                 </div>
             </div>
@@ -197,32 +303,45 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Core Values</h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-400">The principles that power our platform and guide everything we do.</p>
+                    <p class="text-lg text-gray-600 dark:text-gray-400">The principles that power our platform and guide
+                        everything we do.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Value 1 -->
-                    <div class="value-card p-6 bg-white dark:bg-dark-card rounded-xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow">
-                        <div class="mb-4 text-primary flex justify-center"><i data-lucide="shield" class="w-10 h-10"></i></div>
+                    <div
+                        class="value-card p-6 bg-white dark:bg-dark-card rounded-xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow">
+                        <div class="mb-4 text-primary flex justify-center"><i data-lucide="shield"
+                                class="w-10 h-10"></i></div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Trust</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">We verify every seller and secure every transaction with industry-leading security measures.</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">We verify every seller and
+                            secure every transaction with industry-leading security measures.</p>
                     </div>
                     <!-- Value 2 -->
-                    <div class="value-card p-6 bg-white dark:bg-dark-card rounded-xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow">
-                        <div class="mb-4 text-primary flex justify-center"><i data-lucide="users" class="w-10 h-10"></i></div>
+                    <div
+                        class="value-card p-6 bg-white dark:bg-dark-card rounded-xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow">
+                        <div class="mb-4 text-primary flex justify-center"><i data-lucide="users" class="w-10 h-10"></i>
+                        </div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Community</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">We support local businesses and global connections, fostering a vibrant marketplace ecosystem.</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">We support local businesses
+                            and global connections, fostering a vibrant marketplace ecosystem.</p>
                     </div>
                     <!-- Value 3 -->
-                    <div class="value-card p-6 bg-white dark:bg-dark-card rounded-xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow">
-                        <div class="mb-4 text-primary flex justify-center"><i data-lucide="zap" class="w-10 h-10"></i></div>
+                    <div
+                        class="value-card p-6 bg-white dark:bg-dark-card rounded-xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow">
+                        <div class="mb-4 text-primary flex justify-center"><i data-lucide="zap" class="w-10 h-10"></i>
+                        </div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Innovation</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Constantly improving the shopping and selling experience with cutting-edge technology.</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">Constantly improving the
+                            shopping and selling experience with cutting-edge technology.</p>
                     </div>
                     <!-- Value 4 -->
-                    <div class="value-card p-6 bg-white dark:bg-dark-card rounded-xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow">
-                        <div class="mb-4 text-primary flex justify-center"><i data-lucide="heart" class="w-10 h-10"></i></div>
+                    <div
+                        class="value-card p-6 bg-white dark:bg-dark-card rounded-xl border border-gray-200 dark:border-gray-800 text-center hover:shadow-lg transition-shadow">
+                        <div class="mb-4 text-primary flex justify-center"><i data-lucide="heart" class="w-10 h-10"></i>
+                        </div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Passion</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">We love unique products and the people who make them, celebrating creativity and craftsmanship.</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">We love unique products and
+                            the people who make them, celebrating creativity and craftsmanship.</p>
                     </div>
                 </div>
             </div>
@@ -232,30 +351,38 @@
         <section class="py-12 bg-white/50 dark:bg-dark-bg/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Why Choose MarketVibe?</h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-400">What makes us different from other marketplaces</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Why Choose MarketVibe?
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400">What makes us different from other marketplaces
+                    </p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800">
-                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-4">
+                        <div
+                            class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-4">
                             <i data-lucide="lock" class="w-6 h-6 text-primary"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Secure Payments</h3>
-                        <p class="text-gray-600 dark:text-gray-400">All transactions are protected with bank-level encryption and secure payment processing.</p>
+                        <p class="text-gray-600 dark:text-gray-400">All transactions are protected with bank-level
+                            encryption and secure payment processing.</p>
                     </div>
                     <div class="bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800">
-                        <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center mb-4">
+                        <div
+                            class="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center mb-4">
                             <i data-lucide="truck" class="w-6 h-6 text-accent"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Fast Shipping</h3>
-                        <p class="text-gray-600 dark:text-gray-400">Track your orders in real-time with our integrated shipping partners worldwide.</p>
+                        <p class="text-gray-600 dark:text-gray-400">Track your orders in real-time with our integrated
+                            shipping partners worldwide.</p>
                     </div>
                     <div class="bg-white dark:bg-dark-card p-6 rounded-xl border border-gray-200 dark:border-gray-800">
-                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-4">
+                        <div
+                            class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-4">
                             <i data-lucide="headphones" class="w-6 h-6 text-green-600"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">24/7 Support</h3>
-                        <p class="text-gray-600 dark:text-gray-400">Our dedicated support team is available around the clock to help with any questions.</p>
+                        <p class="text-gray-600 dark:text-gray-400">Our dedicated support team is available around the
+                            clock to help with any questions.</p>
                     </div>
                 </div>
             </div>
@@ -287,26 +414,38 @@
                 <div class="text-left">
                     <h3 class="text-white font-semibold text-lg mb-4">Contact Us</h3>
                     <ul class="space-y-3">
-                        <li class="flex items-start space-x-3"><i data-lucide="phone" class="h-5 w-5 text-primary"></i><a href="tel:+15551234567" class="text-sm hover:text-white">+1 (555) 123-4567</a></li>
-                        <li class="flex items-start space-x-3"><i data-lucide="mail" class="h-5 w-5 text-primary"></i><a href="mailto:support@marketvibe.com" class="text-sm hover:text-white">support@marketvibe.com</a></li>
-                        <li class="flex items-start space-x-3"><i data-lucide="map-pin" class="h-5 w-5 text-primary"></i><span class="text-sm">123 Commerce Way, CA</span></li>
+                        <li class="flex items-start space-x-3"><i data-lucide="phone"
+                                class="h-5 w-5 text-primary"></i><a href="tel:+15551234567"
+                                class="text-sm hover:text-white">+1 (555) 123-4567</a></li>
+                        <li class="flex items-start space-x-3"><i data-lucide="mail" class="h-5 w-5 text-primary"></i><a
+                                href="mailto:support@marketvibe.com"
+                                class="text-sm hover:text-white">support@marketvibe.com</a></li>
+                        <li class="flex items-start space-x-3"><i data-lucide="map-pin"
+                                class="h-5 w-5 text-primary"></i><span class="text-sm">123 Commerce Way, CA</span></li>
                     </ul>
                 </div>
                 <div class="text-left">
-                     <h3 class="text-white font-semibold text-lg mb-4">Follow Us</h3>
+                    <h3 class="text-white font-semibold text-lg mb-4">Follow Us</h3>
                     <div class="flex justify-start space-x-4">
-                        <a href="#" class="p-2 bg-gray-800 rounded-full hover:bg-primary transition-colors"><i data-lucide="facebook" class="h-5 w-5 text-gray-400 hover:text-white"></i></a>
-                        <a href="#" class="p-2 bg-gray-800 rounded-full hover:bg-sky-500 transition-colors"><i data-lucide="twitter" class="h-5 w-5 text-gray-400 hover:text-white"></i></a>
-                        <a href="#" class="p-2 bg-gray-800 rounded-full hover:bg-blue-700 transition-colors"><i data-lucide="linkedin" class="h-5 w-5 text-gray-400 hover:text-white"></i></a>
+                        <a href="#" class="p-2 bg-gray-800 rounded-full hover:bg-primary transition-colors"><i
+                                data-lucide="facebook" class="h-5 w-5 text-gray-400 hover:text-white"></i></a>
+                        <a href="#" class="p-2 bg-gray-800 rounded-full hover:bg-sky-500 transition-colors"><i
+                                data-lucide="twitter" class="h-5 w-5 text-gray-400 hover:text-white"></i></a>
+                        <a href="#" class="p-2 bg-gray-800 rounded-full hover:bg-blue-700 transition-colors"><i
+                                data-lucide="linkedin" class="h-5 w-5 text-gray-400 hover:text-white"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-left md:text-left">
+            <div
+                class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-left md:text-left">
                 <p class="text-sm text-gray-500">&copy; 2025 MarketVibe. All rights reserved.</p>
-                <button id="back-to-top" class="btn-hover mt-4 md:mt-0 flex items-center justify-center md:justify-start text-sm text-gray-400 hover:text-white transition-colors">Back to top <i data-lucide="arrow-up" class="ml-2 h-4 w-4"></i></button>
+                <button id="back-to-top"
+                    class="btn-hover mt-4 md:mt-0 flex items-center justify-center md:justify-start text-sm text-gray-400 hover:text-white transition-colors">Back
+                    to top <i data-lucide="arrow-up" class="ml-2 h-4 w-4"></i></button>
             </div>
         </div>
     </footer>
     <script src="script.js"></script>
 </body>
+
 </html>

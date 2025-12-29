@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - MarketVibe</title>
+    <meta name="description" content="MarketVibe Dashboard - Manage your marketplace">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237c3aed' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z'/%3E%3Cline x1='3' y1='6' x2='21' y2='6'/%3E%3Cpath d='M16 10a4 4 0 0 1-8 0'/%3E%3C/svg%3E" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#7c3aed', dark: '#6d28d9', light: '#a78bfa' },
+                        accent: { DEFAULT: '#f59e0b', dark: '#d97706' },
+                        dark: { bg: '#0f172a', card: '#1e293b', text: '#f1f5f9' }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                },
+            },
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body
+    class="bg-gradient-to-br from-purple-50 via-white to-amber-50 text-slate-900 dark:from-dark-bg dark:via-dark-bg dark:to-slate-900 dark:text-dark-text transition-colors duration-300">
+
+    <!-- Dashboard Header -->
+    <header
+        class="sticky top-0 z-50 bg-white/80 dark:bg-dark-card/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="flex items-center space-x-2 group">
+                        <div class="p-1.5 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                            <i data-lucide="shopping-bag" class="h-6 w-6 text-primary"></i>
+                        </div>
+                        <span class="font-bold text-xl text-primary">MarketVibe</span>
+                    </a>
+                    <span class="hidden sm:block text-sm text-gray-500 dark:text-gray-400">Dashboard</span>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    <!-- Role Display (Static) - Hide text on mobile -->
+                    <div class="flex items-center space-x-2 px-2 sm:px-3 py-2 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                        <i id="header-role-icon" data-lucide="user" class="h-4 w-4 text-primary"></i>
+                        <span id="header-role-text"
+                            class="hidden sm:inline text-sm font-medium text-gray-700 dark:text-gray-200">User</span>
+                    </div>
+
+                    <!-- Theme Toggle -->
+                    <button
+                        class="theme-toggle p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                        aria-label="Toggle Dark Mode">
+                        <i data-lucide="sun" class="sun-icon h-5 w-5 hidden"></i>
+                        <i data-lucide="moon" class="moon-icon h-5 w-5 block"></i>
+                    </button>
+
+                    <!-- Logout Button - Icon only on mobile -->
+                    <button id="logout-btn"
+                        class="flex items-center space-x-2 px-3 sm:px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors shadow-md">
+                        <i data-lucide="log-out" class="h-4 w-4"></i>
+                        <span class="hidden sm:inline text-sm font-medium">Logout</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Welcome Section -->
+        <div class="mb-8 text-center">
+            <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                <span id="welcome-role">User</span> Dashboard
+            </h1>
+            <p class="text-gray-600 dark:text-gray-400">Welcome back! Here's your marketplace overview.</p>
+        </div>
+
+        <!-- Admin Dashboard Content -->
+        <div id="admin-dashboard" class="hidden">
+            <!-- KPI Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Active Vendors -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow text-center">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg inline-block">
+                            <i data-lucide="users" class="h-6 w-6 text-primary"></i>
+                        </div>
+                    </div>
+                    <span class="text-xs text-green-600 dark:text-green-400 font-medium">+12%</span>
+                    <h3 class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1 mt-2">Active Vendors</h3>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white">348</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">17 suspended</p>
+                </div>
+
+                <!-- Total Orders (Today) -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow text-center">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg inline-block">
+                            <i data-lucide="shopping-cart" class="h-6 w-6 text-blue-600"></i>
+                        </div>
+                    </div>
+                    <span class="text-xs text-green-600 dark:text-green-400 font-medium">+18%</span>
+                    <h3 class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1 mt-2">Orders Today</h3>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white">2,480</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">₹3.2Cr revenue</p>
+                </div>
+
+                <!-- Commission Earned -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow text-center">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="p-3 bg-green-100 dark:bg-green-900/30 rounded-lg inline-block">
+                            <i data-lucide="dollar-sign" class="h-6 w-6 text-green-600"></i>
+                        </div>
+                    </div>
+                    <span class="text-xs text-green-600 dark:text-green-400 font-medium">+8%</span>
+                    <h3 class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1 mt-2">Commission (This Month)
+                    </h3>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white">₹24L</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">₹5.6L pending payout</p>
+                </div>
+
+                <!-- Open Disputes -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow text-center">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="p-3 bg-red-100 dark:bg-red-900/30 rounded-lg inline-block">
+                            <i data-lucide="alert-circle" class="h-6 w-6 text-red-600"></i>
+                        </div>
+                    </div>
+                    <span class="text-xs text-red-600 dark:text-red-400 font-medium">Urgent</span>
+                    <h3 class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1 mt-2">Open Disputes</h3>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white">31</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">204 resolved this month</p>
+                </div>
+            </div>
+
+            <!-- Vendor Quality & Recent Activity -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- Vendor Listings Quality -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Top Vendors</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div
+                                    class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center">
+                                    <span class="text-sm font-bold text-primary">TW</span>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white text-sm">TechWorld</p>
+                                    <p class="text-xs text-gray-500">214 listings • 4.9★</p>
+                                </div>
+                            </div>
+                            <span
+                                class="px-2 py-1 text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">Active</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div
+                                    class="w-10 h-10 bg-pink-100 dark:bg-pink-900/30 rounded-full flex items-center justify-center">
+                                    <span class="text-sm font-bold text-pink-600">US</span>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white text-sm">UrbanStyle</p>
+                                    <p class="text-xs text-gray-500">168 listings • 4.7★</p>
+                                </div>
+                            </div>
+                            <span
+                                class="px-2 py-1 text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">Active</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div
+                                    class="w-10 h-10 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center">
+                                    <span class="text-sm font-bold text-accent">AS</span>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white text-sm">ArtsyStudio</p>
+                                    <p class="text-xs text-gray-500">92 listings • 4.8★</p>
+                                </div>
+                            </div>
+                            <span
+                                class="px-2 py-1 text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Recent Activity</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div
+                                class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check-circle" class="h-4 w-4 text-green-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-gray-900 dark:text-white">New vendor approved</p>
+                                <p class="text-xs text-gray-500">GreenThumb - 2 minutes ago</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div
+                                class="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="shopping-cart" class="h-4 w-4 text-blue-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-gray-900 dark:text-white">High-value order placed</p>
+                                <p class="text-xs text-gray-500">₹1.2L - Order #MV2899 - 15 min ago</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div
+                                class="w-8 h-8 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="alert-triangle" class="h-4 w-4 text-accent"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-gray-900 dark:text-white">Inventory alert</p>
+                                <p class="text-xs text-gray-500">32 products low stock - 1 hour ago</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div
+                                class="w-8 h-8 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="message-square" class="h-4 w-4 text-red-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-gray-900 dark:text-white">New dispute filed</p>
+                                <p class="text-xs text-gray-500">Order #MV2785 - 2 hours ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Performance & Payment Status -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Category Performance -->
+                <div
+                    class="lg:col-span-2 bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Category Performance</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex items-centerustify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Electronics</span>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">₹1.2Cr (38%)</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 38%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Fashion</span>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">₹98L (31%)</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-pink-500 h-2 rounded-full" style="width: 31%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Home & Living</span>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">₹62L (19%)</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 19%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Art & Design</span>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">₹38L (12%)</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-amber-500 h-2 rounded-full" style="width: 12%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Status -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Payouts</h3>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-green-50 dark:bg-green-900/10 rounded-lg">
+                            <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">Processed</p>
+                            <p class="text-2xl font-bold text-green-600">₹18.4L</p>
+                            <p class="text-xs text-gray-500 mt-1">This month</p>
+                        </div>
+                        <div class="p-4 bg-amber-50 dark:bg-amber-900/10 rounded-lg">
+                            <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">Pending</p>
+                            <p class="text-2xl font-bold text-accent">₹5.6L</p>
+                            <p class="text-xs text-gray-500 mt-1">Next payout: Jan 5</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disputes Table -->
+            <div
+                class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Recent Disputes</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-200 dark:border-gray-700">
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700 dark:text-gray-300">
+                                    Order ID</th>
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700 dark:text-gray-300">
+                                    Vendor</th>
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700 dark:text-gray-300">
+                                    Reason</th>
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700 dark:text-gray-300">
+                                    Status</th>
+                                <th class="text-left py-3 px-4 text-sm font-semibold text-gray-700 dark:text-gray-300">
+                                    Priority</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="py-3 px-4 text-gray-700 dark:text-gray-300">#MV2785</td>
+                                <td class="py-3 px-4 text-gray-700 dark:text-gray-300">TechWorld</td>
+                                <td class="py-3 px-4 text-gray-700 dark:text-gray-300">Product not as described</td>
+                                <td class="py-3 px-4">
+                                    <span
+                                        class="px-2 py-1 text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 rounded-full">Under
+                                        Review</span>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <span
+                                        class="px-2 py-1 text-xs font-medium bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full">High</span>
+                                </td>
+                            </tr>
+                            <tr
+                                class="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="py-3 px-4 text-gray-700 dark:text-gray-300">#MV2761</td>
+                                <td class="py-3 px-4 text-gray-700 dark:text-gray-300">UrbanStyle</td>
+                                <td class="py-3 px-4 text-gray-700 dark:text-gray-300">Delayed shipping</td>
+                                <td class="py-3 px-4">
+                                    <span
+                                        class="px-2 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full">In
+                                        Progress</span>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <span
+                                        class="px-2 py-1 text-xs font-medium bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 rounded-full">Medium</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                                <td class="py-3 px-4 text-gray-700 dark:text-gray-300">#MV2742</td>
+                                <td class="py-3 px-4 text-gray-700 dark:text-gray-300">ShoeBox</td>
+                                <td class="py-3 px-4 text-gray-700 dark:text-gray-300">Wrong size received</td>
+                                <td class="py-3 px-4">
+                                    <span
+                                        class="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-400 rounded-full">Pending</span>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <span
+                                        class="px-2 py-1 text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">Low</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Platform Statistics & Top Products -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- Platform Overview -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Platform Statistics</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div
+                            class="p-4 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <i data-lucide="users" class="h-5 w-5 text-primary"></i>
+                                <span class="text-xs text-green-600 dark:text-green-400">+24%</span>
+                            </div>
+                            <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">Total Users</p>
+                            <p class="text-2xl font-bold text-gray-900 dark:text-white">128.5K</p>
+                        </div>
+                        <div
+                            class="p-4 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <i data-lucide="package" class="h-5 w-5 text-blue-600"></i>
+                                <span class="text-xs text-green-600 dark:text-green-400">+18%</span>
+                            </div>
+                            <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">Total Products</p>
+                            <p class="text-2xl font-bold text-gray-900 dark:text-white">52.4K</p>
+                        </div>
+                        <div
+                            class="p-4 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <i data-lucide="trending-up" class="h-5 w-5 text-green-600"></i>
+                                <span class="text-xs text-green-600 dark:text-green-400">+32%</span>
+                            </div>
+                            <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">Monthly GMV</p>
+                            <p class="text-2xl font-bold text-gray-900 dark:text-white">₹45Cr</p>
+                        </div>
+                        <div
+                            class="p-4 bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900/20 dark:to-amber-800/20 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <i data-lucide="star" class="h-5 w-5 text-accent"></i>
+                                <span class="text-xs text-green-600 dark:text-green-400">+0.2</span>
+                            </div>
+                            <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">Avg Rating</p>
+                            <p class="text-2xl font-bold text-gray-900 dark:text-white">4.7★</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Selling Products -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Top Selling Products</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div
+                                    class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="smartphone" class="h-5 w-5 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white text-sm">ProPhone X</p>
+                                    <p class="text-xs text-gray-500">₹32,999 • 842 sold</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-medium text-green-600">+128%</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div
+                                    class="w-10 h-10 bg-pink-100 dark:bg-pink-900/30 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="watch" class="h-5 w-5 text-pink-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white text-sm">Smart Watch Pro</p>
+                                    <p class="text-xs text-gray-500">₹8,999 • 624 sold</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-medium text-green-600">+89%</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div
+                                    class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="headphones" class="h-5 w-5 text-green-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white text-sm">Wireless Buds</p>
+                                    <p class="text-xs text-gray-500">₹3,499 • 556 sold</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-medium text-green-600">+76%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Revenue Trends & Inventory Alerts -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Monthly Revenue Trend -->
+                <div
+                    class="lg:col-span-2 bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Revenue Trend (Last 6 Months)</h3>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-400 min-w-[60px]">Dec '24</span>
+                            <div class="flex-1 mx-3">
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-6">
+                                    <div class="bg-gradient-to-r from-primary to-purple-600 h-6 rounded-full flex items-center justify-end pr-2"
+                                        style="width: 95%">
+                                        <span class="text-xs text-white font-medium">₹45Cr</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-400 min-w-[60px]">Nov '24</span>
+                            <div class="flex-1 mx-3">
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-6">
+                                    <div class="bg-gradient-to-r from-primary to-purple-600 h-6 rounded-full flex items-center justify-end pr-2"
+                                        style="width: 88%">
+                                        <span class="text-xs text-white font-medium">₹41Cr</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-400 min-w-[60px]">Oct '24</span>
+                            <div class="flex-1 mx-3">
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-6">
+                                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-6 rounded-full flex items-center justify-end pr-2"
+                                        style="width: 75%">
+                                        <span class="text-xs text-white font-medium">₹35Cr</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-400 min-w-[60px]">Sep '24</span>
+                            <div class="flex-1 mx-3">
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-6">
+                                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-6 rounded-full flex items-center justify-end pr-2"
+                                        style="width: 68%">
+                                        <span class="text-xs text-white font-medium">₹32Cr</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-400 min-w-[60px]">Aug '24</span>
+                            <div class="flex-1 mx-3">
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-6">
+                                    <div class="bg-gradient-to-r from-gray-400 to-gray-500 h-6 rounded-full flex items-center justify-end pr-2"
+                                        style="width: 62%">
+                                        <span class="text-xs text-white font-medium">₹29Cr</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-400 min-w-[60px]">Jul '24</span>
+                            <div class="flex-1 mx-3">
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-6">
+                                    <div class="bg-gradient-to-r from-gray-400 to-gray-500 h-6 rounded-full flex items-center justify-end pr-2"
+                                        style="width: 58%">
+                                        <span class="text-xs text-white font-medium">₹27Cr</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inventory Alerts & Applications -->
+                <div class="space-y-6">
+                    <!-- Low Stock Alerts -->
+                    <div
+                        class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Inventory Alerts</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-red-50 dark:bg-red-900/10 rounded-lg">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-900 dark:text-white">Out of Stock</p>
+                                    <p class="text-xs text-gray-500">Urgent action</p>
+                                </div>
+                                <p class="text-2xl font-bold text-red-600">11</p>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-3 bg-amber-50 dark:bg-amber-900/10 rounded-lg">
+                                <div>
+                                    <p class="text-sm font-medium text-gray-900 dark:text-white">Low Stock</p>
+                                    <p class="text-xs text-gray-500">\< 10 units</p>
+                                </div>
+                                <p class="text-2xl font-bold text-accent">32</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Vendor Applications -->
+                    <div
+                        class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Pending Reviews</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Vendor Applications</span>
+                                <span
+                                    class="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-xs font-medium">8</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Product Approvals</span>
+                                <span
+                                    class="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-primary rounded-full text-xs font-medium">24</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Refund Requests</span>
+                                <span
+                                    class="px-2 py-1 bg-amber-100 dark:bg-amber-900/30 text-accent rounded-full text-xs font-medium">12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Dashboard Content -->
+        <div id="user-dashboard">
+            <!-- KPI Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Active Orders -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow text-center">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-lg inline-block">
+                            <i data-lucide="package" class="h-6 w-6 text-blue-600"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Active Orders</h3>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white">2</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">1 out for delivery</p>
+                </div>
+
+                <!-- Wishlist Items -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow text-center">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="p-3 bg-pink-100 dark:bg-pink-900/30 rounded-lg inline-block">
+                            <i data-lucide="heart" class="h-6 w-6 text-pink-600"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Wishlist Items</h3>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white">7</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">3 price drops</p>
+                </div>
+
+                <!-- Total Spent -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow text-center">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="p-3 bg-green-100 dark:bg-green-900/30 rounded-lg inline-block">
+                            <i data-lucide="credit-card" class="h-6 w-6 text-green-600"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">Total Spent</h3>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white">₹52k</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Across 18 orders</p>
+                </div>
+
+                <!-- Messages -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow text-center">
+                    <div class="flex items-center justify-center mb-4">
+                        <div class="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg inline-block">
+                            <i data-lucide="message-circle" class="h-6 w-6 text-primary"></i>
+                        </div>
+                    </div>
+                    <span
+                        class="px-2 py-1 text-xs font-medium bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full">New</span>
+                    <h3 class="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1 mt-2">Messages</h3>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white">4</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">From vendors</p>
+                </div>
+            </div>
+
+            <!-- Order Tracking & Recent Purchases -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Order Tracking -->
+                <div
+                    class="lg:col-span-2 bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Active Orders</h3>
+                    <div class="space-y-4">
+                        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex items-start space-x-3">
+                                    <div
+                                        class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="smartphone" class="h-8 w-8 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-900 dark:text-white">ProPhone X</p>
+                                        <p class="text-xs text-gray-500">Electronics • TechWorld</p>
+                                        <p class="text-sm font-semibold text-gray-900 dark:text-white mt-1">₹32,999</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="px-2 py-1 text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 rounded-full">Out
+                                    for Delivery</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="flex-1">
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <span class="ml-3 text-xs text-gray-600 dark:text-gray-400">ETA: Today</span>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                            <div class="flex items-start justify-between mb-3">
+                                <div class="flex items-start space-x-3">
+                                    <div
+                                        class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="shirt" class="h-8 w-8 text-pink-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-900 dark:text-white">Air Walkers</p>
+                                        <p class="text-xs text-gray-500">Fashion • ShoeBox</p>
+                                        <p class="text-sm font-semibold text-gray-900 dark:text-white mt-1">₹5,999</p>
+                                    </div>
+                                </div>
+                                <span
+                                    class="px-2 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full">Shipped</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="flex-1">
+                                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                        <div class="bg-blue-500 h-2 rounded-full" style="width: 50%"></div>
+                                    </div>
+                                </div>
+                                <span class="ml-3 text-xs text-gray-600 dark:text-gray-400">ETA: 2 days</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="space-y-6">
+                    <!-- Recent Support -->
+                    <div
+                        class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Support</h3>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-purple-50 dark:bg-purple-900/10 rounded-lg">
+                                <p class="text-sm font-medium text-gray-900 dark:text-white">Active Tickets</p>
+                                <p class="text-2xl font-bold text-primary mt-1">1</p>
+                                <p class="text-xs text-gray-500 mt-1">Order #MV2301</p>
+                            </div>
+                            <div class="p-3 bg-blue-50 dark:bg-blue-900/10 rounded-lg">
+                                <p class="text-sm font-medium text-gray-900 dark:text-white">Messages</p>
+                                <p class="text-2xl font-bold text-blue-600 mt-1">4</p>
+                                <p class="text-xs text-gray-500 mt-1">3 unread</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Info -->
+                    <div
+                        class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Account</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Member Since</span>
+                                <span class="text-sm font-medium text-gray-900 dark:text-white">Jan 2024</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Saved Addresses</span>
+                                <span class="text-sm font-medium text-gray-900 dark:text-white">2</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Saved Cards</span>
+                                <span class="text-sm font-medium text-gray-900 dark:text-white">1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order History & Payments -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Order History -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Recent Purchases</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                            <div>
+                                <p class="font-medium text-gray-900 dark:text-white text-sm">Smart Watch Pro</p>
+                                <p class="text-xs text-gray-500">Dec 20, 2024</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-semibold text-gray-900 dark:text-white">₹8,999</p>
+                                <span
+                                    class="px-2 py-1 text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">Delivered</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                            <div>
+                                <p class="font-medium text-gray-900 dark:text-white text-sm">Wireless Headphones</p>
+                                <p class="text-xs text-gray-500">Dec 15, 2024</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-semibold text-gray-900 dark:text-white">₹3,499</p>
+                                <span
+                                    class="px-2 py-1 text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">Delivered</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                            <div>
+                                <p class="font-medium text-gray-900 dark:text-white text-sm">Canvas Backpack</p>
+                                <p class="text-xs text-gray-500">Dec 10, 2024</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-semibold text-gray-900 dark:text-white">₹1,799</p>
+                                <span
+                                    class="px-2 py-1 text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">Delivered</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payments & Wishlist -->
+                <div class="space-y-6">
+                    <!-- Payments -->
+                    <div
+                        class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Payments & Savings</h3>
+                        <div class="space-y-3">
+                            <div
+                                class="flex items-center justify-between p-3 bg-green-50 dark:bg-green-900/10 rounded-lg">
+                                <div>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">Total Paid</p>
+                                    <p class="text-2xl font-bold text-green-600 mt-1">₹52,000</p>
+                                </div>
+                                <i data-lucide="check-circle" class="h-6 w-6 text-green-600"></i>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-3 bg-amber-50 dark:bg-amber-900/10 rounded-lg">
+                                <div>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400">Saved on Deals</p>
+                                    <p class="text-2xl font-bold text-accent mt-1">₹8,500</p>
+                                </div>
+                                <i data-lucide="tag" class="h-6 w-6 text-accent"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wishlist Preview -->
+                    <div
+                        class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Wishlist Highlights</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-700 dark:text-gray-300">Total Items</span>
+                                <span class="text-sm font-semibold text-gray-900 dark:text-white">7</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-700 dark:text-gray-300">Estimated Value</span>
+                                <span class="text-sm font-semibold text-gray-900 dark:text-white">₹42,000</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-green-600 dark:text-green-400">Items on Sale</span>
+                                <span class="text-sm font-semibold text-green-600">3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommended Products & Active Deals -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- Recommended for You -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Recommended for You</h3>
+                    <div class="space-y-3">
+                        <div
+                            class="flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                            <div class="flex items-center space-x-3">
+                                <div
+                                    class="w-12 h-12 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="laptop" class="h-6 w-6 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white text-sm">Ultra Laptop Pro</p>
+                                    <p class="text-xs text-gray-500">Based on your browsing</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-bold text-gray-900 dark:text-white">₹65,999</p>
+                                <span class="text-xs text-green-600">-15% OFF</span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center justify-between p-3 bg-gradient-to-r from-pink-50 to-pink-100 dark:from-pink-900/20 dark:to-pink-800/20 rounded-lg border border-pink-200 dark:border-pink-800">
+                            <div class="flex items-center space-x-3">
+                                <div
+                                    class="w-12 h-12 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="camera" class="h-6 w-6 text-pink-600"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white text-sm">Action Camera 4K</p>
+                                    <p class="text-xs text-gray-500">Similar to your purchases</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-bold text-gray-900 dark:text-white">₹12,499</p>
+                                <span class="text-xs text-green-600">-25% OFF</span>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center justify-between p-3 bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-lg border border-purple-200 dark:border-purple-800">
+                            <div class="flex items-center space-x-3">
+                                <div
+                                    class="w-12 h-12 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center">
+                                    <i data-lucide="speaker" class="h-6 w-6 text-primary"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900 dark:text-white text-sm">Smart Speaker Max</p>
+                                    <p class="text-xs text-gray-500">Trending in Electronics</p>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-bold text-gray-900 dark:text-white">₹6,999</p>
+                                <span class="text-xs text-green-600">-20% OFF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Deals & Rewards -->
+                <div class="space-y-6">
+                    <!-- Active Deals -->
+                    <div
+                        class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Active Deals for You</h3>
+                        <div class="space-y-3">
+                            <div
+                                class="p-3 bg-gradient-to-r from-amber-50 to-amber-100 dark:from-amber-900/20 dark:to-amber-800/20 rounded-lg border border-amber-200 dark:border-amber-800">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm font-medium text-gray-900 dark:text-white">Flash Sale</span>
+                                    <span
+                                        class="px-2 py-0.5 bg-red-500 text-white text-xs font-bold rounded">LIVE</span>
+                                </div>
+                                <p class="text-xs text-gray-600 dark:text-gray-400">Up to 50% off on Electronics</p>
+                                <p class="text-xs text-red-600 font-medium mt-1">Ends in 2h 34m</p>
+                            </div>
+                            <div
+                                class="p-3 bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-lg border border-green-200 dark:border-green-800">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm font-medium text-gray-900 dark:text-white">Free Shipping</span>
+                                    <i data-lucide="truck" class="h-4 w-4 text-green-600"></i>
+                                </div>
+                                <p class="text-xs text-gray-600 dark:text-gray-400">On orders above ₹999</p>
+                                <p class="text-xs text-green-600 font-medium mt-1">Valid for 7 days</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Loyalty Rewards -->
+                    <div
+                        class="bg-gradient-to-br from-primary/10 to-purple-100 dark:from-primary/20 dark:to-purple-900/20 rounded-xl p-6 border border-primary/20 dark:border-primary/30 shadow-sm text-center">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Loyalty Rewards</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-700 dark:text-gray-300">Points Balance</span>
+                                <span class="text-xl font-bold text-primary">2,450</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-700 dark:text-gray-300">Points Value</span>
+                                <span class="text-sm font-semibold text-gray-900 dark:text-white">₹245</span>
+                            </div>
+                            <div class="mt-3 pt-3 border-t border-primary/20">
+                                <p class="text-xs text-gray-600 dark:text-gray-400">Earn 100 more points to unlock <span
+                                        class="font-semibold text-primary">Gold Member</span> status!</p>
+                                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-2">
+                                    <div class="bg-gradient-to-r from-primary to-purple-600 h-2 rounded-full"
+                                        style="width: 71%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recently Viewed & Price Alerts -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Recently Viewed -->
+                <div
+                    class="lg:col-span-2 bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Recently Viewed</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div
+                            class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-center border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary transition-colors cursor-pointer">
+                            <div
+                                class="w-16 h-16 mx-auto bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-2">
+                                <i data-lucide="tablet" class="h-8 w-8 text-blue-600"></i>
+                            </div>
+                            <p class="text-xs font-medium text-gray-900 dark:text-white mb-1">Tab Pro 11</p>
+                            <p class="text-xs text-gray-500">₹28,999</p>
+                        </div>
+                        <div
+                            class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-center border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary transition-colors cursor-pointer">
+                            <div
+                                class="w-16 h-16 mx-auto bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-2">
+                                <i data-lucide="printer" class="h-8 w-8 text-green-600"></i>
+                            </div>
+                            <p class="text-xs font-medium text-gray-900 dark:text-white mb-1">Laser Printer</p>
+                            <p class="text-xs text-gray-500">₹15,499</p>
+                        </div>
+                        <div
+                            class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-center border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary transition-colors cursor-pointer">
+                            <div
+                                class="w-16 h-16 mx-auto bg-pink-100 dark:bg-pink-900/30 rounded-lg flex items-center justify-center mb-2">
+                                <i data-lucide="gamepad-2" class="h-8 w-8 text-pink-600"></i>
+                            </div>
+                            <p class="text-xs font-medium text-gray-900 dark:text-white mb-1">Game Console</p>
+                            <p class="text-xs text-gray-500">₹42,999</p>
+                        </div>
+                        <div
+                            class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg text-center border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary transition-colors cursor-pointer">
+                            <div
+                                class="w-16 h-16 mx-auto bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center mb-2">
+                                <i data-lucide="tv" class="h-8 w-8 text-accent"></i>
+                            </div>
+                            <p class="text-xs font-medium text-gray-900 dark:text-white mb-1">Smart TV 55"</p>
+                            <p class="text-xs text-gray-500">₹45,999</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price Alerts & Notifications -->
+                <div class="space-y-6">
+                    <!-- Price Alerts -->
+                    <div
+                        class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Price Alerts</h3>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-green-50 dark:bg-green-900/10 rounded-lg">
+                                <div class="flex items-start justify-between mb-1">
+                                    <p class="text-sm font-medium text-gray-900 dark:text-white">Wireless Buds</p>
+                                    <i data-lucide="trending-down" class="h-4 w-4 text-green-600"></i>
+                                </div>
+                                <p class="text-xs text-green-600 font-medium">Price dropped by ₹500!</p>
+                                <p class="text-xs text-gray-500 mt-1">Now ₹2,999</p>
+                            </div>
+                            <div class="p-3 bg-amber-50 dark:bg-amber-900/10 rounded-lg">
+                                <div class="flex items-start justify-between mb-1">
+                                    <p class="text-sm font-medium text-gray-900 dark:text-white">Smart Speaker</p>
+                                    <i data-lucide="bell" class="h-4 w-4 text-accent"></i>
+                                </div>
+                                <p class="text-xs text-accent font-medium">Watching for ₹6,000</p>
+                                <p class="text-xs text-gray-500 mt-1">Current: ₹6,999</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Deliveries -->
+                    <div
+                        class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Delivery Calendar</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center space-x-2">
+                                <div
+                                    class="w-10 h-10 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex flex-col items-center justify-center">
+                                    <span class="text-xs text-yellow-700 dark:text-yellow-400 font-bold">29</span>
+                                    <span class="text-[10px] text-yellow-600 dark:text-yellow-500">DEC</span>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-xs font-medium text-gray-900 dark:text-white">ProPhone X</p>
+                                    <p class="text-xs text-yellow-600">Today</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div
+                                    class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex flex-col items-center justify-center">
+                                    <span class="text-xs text-blue-700 dark:text-blue-400 font-bold">31</span>
+                                    <span class="text-[10px] text-blue-600 dark:text-blue-500">DEC</span>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-xs font-medium text-gray-900 dark:text-white">Air Walkers</p>
+                                    <p class="text-xs text-blue-600">In 2 days</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review Summary & Referral Rewards -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Your Reviews -->
+                <div
+                    class="bg-white dark:bg-dark-card rounded-xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Your Reviews</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Total Reviews</p>
+                                <p class="text-2xl font-bold text-gray-900 dark:text-white">12</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Average Rating</p>
+                                <div class="flex items-center space-x-1 mt-1">
+                                    <p class="text-2xl font-bold text-amber-500">4.5</p>
+                                    <i data-lucide="star" class="h-5 w-5 text-amber-500 fill-current"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-200 dark:border-gray-700 pt-3">
+                            <p class="text-xs text-gray-600 dark:text-gray-400 mb-2">Pending Reviews</p>
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-800 rounded">
+                                    <span class="text-xs text-gray-700 dark:text-gray-300">Smart Watch Pro</span>
+                                    <button class="text-xs text-primary font-medium hover:underline">Review</button>
+                                </div>
+                                <div class="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-800 rounded">
+                                    <span class="text-xs text-gray-700 dark:text-gray-300">Wireless Headphones</span>
+                                    <button class="text-xs text-primary font-medium hover:underline">Review</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Referral Program -->
+                <div
+                    class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-6 border border-purple-200 dark:border-purple-800 shadow-sm text-center">
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Referral Rewards</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white/50 dark:bg-gray-800/50 rounded-lg p-4">
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Your Referral Code</p>
+                            <div class="flex items-center justify-between p-3 bg-gray-900 dark:bg-gray-700 rounded-lg">
+                                <span class="text-lg font-bold text-white tracking-wider">MVB-USER2024</span>
+                                <button class="p-1.5 bg-primary hover:bg-primary-dark rounded transition-colors">
+                                    <i data-lucide="copy" class="h-4 w-4 text-white"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+                                <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">Successful Referrals</p>
+                                <p class="text-2xl font-bold text-primary">8</p>
+                            </div>
+                            <div class="p-3 bg-white/50 dark:bg-gray-800/50 rounded-lg">
+                                <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">Rewards Earned</p>
+                                <p class="text-2xl font-bold text-green-600">₹2,400</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-600 dark:text-gray-400 text-center">Refer friends and earn ₹300 per
+                            successful signup!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Main Script -->
+    <script src="script.js"></script>
+    <script>
+        // Dashboard-specific functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+
+            // Get stored role or default to 'user'
+            let currentRole = localStorage.getItem('userRole') || 'user';
+            updateDashboard();
+
+            // Update dashboard display
+            function updateDashboard() {
+                const roleText = document.getElementById('header-role-text');
+                const roleIcon = document.getElementById('header-role-icon');
+                const welcomeRole = document.getElementById('welcome-role');
+                const adminDashboard = document.getElementById('admin-dashboard');
+                const userDashboard = document.getElementById('user-dashboard');
+
+                if (currentRole === 'admin') {
+                    roleText.textContent = 'Admin';
+                    roleIcon.setAttribute('data-lucide', 'shield');
+                    welcomeRole.textContent = 'Admin';
+                    adminDashboard.classList.remove('hidden');
+                    userDashboard.classList.add('hidden');
+                } else {
+                    roleText.textContent = 'User';
+                    roleIcon.setAttribute('data-lucide', 'user');
+                    welcomeRole.textContent = 'User';
+                    adminDashboard.classList.add('hidden');
+                    userDashboard.classList.remove('hidden');
+                }
+
+                lucide.createIcons();
+            }
+
+            // Logout functionality
+            const logoutBtn = document.getElementById('logout-btn');
+            logoutBtn.addEventListener('click', () => {
+                localStorage.removeItem('isLoggedIn');
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+</body>
+
+</html>
