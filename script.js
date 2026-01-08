@@ -216,6 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Switch the role
       currentRole = currentRole === 'user' ? 'admin' : 'user';
       localStorage.setItem('userRole', currentRole);
+      updateRoleUI();
       // Navigate to dashboard
       window.location.href = 'dashboard.html';
     });
@@ -228,6 +229,25 @@ document.addEventListener('DOMContentLoaded', () => {
       currentRole = currentRole === 'user' ? 'admin' : 'user';
       localStorage.setItem('userRole', currentRole);
       updateRoleUI();
+      // Navigate to dashboard after switching
+      window.location.href = 'dashboard.html';
+    });
+  }
+
+  // Portal Links - Navigate to dashboard with current role (don't change role)
+  const desktopAdminPortal = document.getElementById('desktop-admin-portal');
+  if (desktopAdminPortal) {
+    desktopAdminPortal.addEventListener('click', (e) => {
+      // Keep current role, just navigate to dashboard
+      // Role is already set in localStorage and will be maintained
+    });
+  }
+
+  const mobileAdminPortal = document.getElementById('mobile-admin-portal');
+  if (mobileAdminPortal) {
+    mobileAdminPortal.addEventListener('click', (e) => {
+      // Keep current role, just navigate to dashboard
+      // Role is already set in localStorage and will be maintained
     });
   }
 
@@ -237,20 +257,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const desktopRoleText = document.getElementById('desktop-role-text');
     const desktopRoleIcon = document.getElementById('desktop-role-icon');
     const desktopSwitchText = document.getElementById('desktop-switch-text');
+    const desktopAdminPortal = document.getElementById('desktop-admin-portal');
 
     // Mobile
     const mobileRoleText = document.getElementById('mobile-role-text');
     const mobileRoleIcon = document.getElementById('mobile-role-icon');
+    const mobileAdminPortal = document.getElementById('mobile-admin-portal');
 
     const isAdmin = currentRole === 'admin';
     const roleText = isAdmin ? 'Admin' : 'User';
     const switchToText = isAdmin ? 'User' : 'Admin';
     const iconName = isAdmin ? 'shield' : 'user';
+    const portalText = isAdmin ? 'Admin Portal' : 'User Portal';
 
     // Update desktop
     if (desktopRoleText) desktopRoleText.textContent = roleText;
     if (desktopSwitchText) desktopSwitchText.textContent = switchToText;
     if (desktopRoleIcon) desktopRoleIcon.setAttribute('data-lucide', iconName);
+    
+    // Update desktop portal text
+    if (desktopAdminPortal) {
+      const span = desktopAdminPortal.querySelector('span');
+      if (span) {
+        span.textContent = portalText;
+      } else {
+        // Fallback if structure is different
+        desktopAdminPortal.textContent = portalText;
+      }
+    }
 
     // Update mobile
     if (mobileRoleText) mobileRoleText.textContent = roleText;
@@ -259,6 +293,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update mobile switch text
     const mobileSwitchText = document.getElementById('mobile-switch-text');
     if (mobileSwitchText) mobileSwitchText.textContent = switchToText;
+
+    // Update mobile portal text
+    if (mobileAdminPortal) {
+      // The portal text is directly in the anchor tag after the icon
+      const icon = mobileAdminPortal.querySelector('i');
+      if (icon) {
+        // Get all child nodes
+        const childNodes = Array.from(mobileAdminPortal.childNodes);
+        // Remove all text nodes (which contain "Admin Portal" or "User Portal")
+        childNodes.forEach(node => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            node.remove();
+          }
+        });
+        // Add the portal text as a new text node after the icon
+        const textNode = document.createTextNode(' ' + portalText);
+        // Insert after icon (icon should be first child)
+        if (icon.nextSibling) {
+          mobileAdminPortal.insertBefore(textNode, icon.nextSibling);
+        } else {
+          mobileAdminPortal.appendChild(textNode);
+        }
+      } else {
+        // Fallback: replace all content
+        mobileAdminPortal.textContent = portalText;
+      }
+    }
 
     // Re-initialize icons
     lucide.createIcons();

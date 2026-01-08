@@ -21,6 +21,13 @@
         tailwind.config = {
             darkMode: 'class',
             theme: {
+                screens: {
+                    'sm': '640px',
+                    'md': '768px',
+                    'lg': '1100px',
+                    'xl': '1280px',
+                    '2xl': '1536px',
+                },
                 extend: {
                     colors: {
                         primary: {
@@ -114,6 +121,7 @@
                                 <i id="desktop-role-icon" data-lucide="user" class="h-5 w-5 text-primary"></i>
                                 <span id="desktop-role-text" class="font-medium">User</span>
                             </a>
+
                             <button id="desktop-switch-role"
                                 class="w-full flex items-center space-x-3 px-4 py-3 text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary transition-colors text-left">
                                 <i data-lucide="refresh-cw" class="h-4 w-4"></i>
@@ -204,6 +212,7 @@
                             id="mobile-dashboard-chevron"></i>
                     </button>
                     <div id="mobile-dashboard-submenu" class="hidden pl-4 mt-2 space-y-1">
+
                         <a href="login.html"
                             class="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800">Login</a>
                         <a href="register.html"
@@ -294,11 +303,10 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Card 1 -->
-                    <div
-                        class="feature-card p-6 rounded-xl bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-800">
-                        <div
-                            class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
-                            <i data-lucide="shield-check" class="w-6 h-6 text-primary"></i>
+                    <div class="feature-card p-6 rounded-xl glass-panel hover-lift transition-all duration-300">
+                        <div class="flex items-center justify-center mb-4 mx-auto md:mx-0">
+                            <img src="icon_secure.png" alt="Secure Payments"
+                                class="h-16 w-16 object-contain drop-shadow-md">
                         </div>
                         <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2 text-center md:text-left">Secure
                             Payments</h3>
@@ -306,11 +314,10 @@
                             Transactions protected with top-tier encryption.</p>
                     </div>
                     <!-- Card 2 -->
-                    <div
-                        class="feature-card p-6 rounded-xl bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-800">
-                        <div
-                            class="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
-                            <i data-lucide="truck" class="w-6 h-6 text-accent"></i>
+                    <div class="feature-card p-6 rounded-xl glass-panel hover-lift transition-all duration-300">
+                        <div class="flex items-center justify-center mb-4 mx-auto md:mx-0">
+                            <img src="icon_active_orders.png" alt="Fast Shipping"
+                                class="h-16 w-16 object-contain drop-shadow-md">
                         </div>
                         <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2 text-center md:text-left">Fast
                             Shipping</h3>
@@ -318,11 +325,10 @@
                             Tracked delivery options from trusted sellers.</p>
                     </div>
                     <!-- Card 3 -->
-                    <div
-                        class="feature-card p-6 rounded-xl bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-800">
-                        <div
-                            class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
-                            <i data-lucide="award" class="w-6 h-6 text-green-600"></i>
+                    <div class="feature-card p-6 rounded-xl glass-panel hover-lift transition-all duration-300">
+                        <div class="flex items-center justify-center mb-4 mx-auto md:mx-0">
+                            <img src="icon_stats_rating.png" alt="Verified Sellers"
+                                class="h-16 w-16 object-contain drop-shadow-md">
                         </div>
                         <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2 text-center md:text-left">
                             Verified Sellers</h3>
@@ -330,11 +336,10 @@
                             Every vendor is vetted for quality assurance.</p>
                     </div>
                     <!-- Card 4 -->
-                    <div
-                        class="feature-card p-6 rounded-xl bg-white dark:bg-dark-card border border-gray-200 dark:border-gray-800">
-                        <div
-                            class="w-12 h-12 bg-pink-100 dark:bg-pink-900/30 rounded-lg flex items-center justify-center mb-4 mx-auto md:mx-0">
-                            <i data-lucide="headphones" class="w-6 h-6 text-pink-600"></i>
+                    <div class="feature-card p-6 rounded-xl glass-panel hover-lift transition-all duration-300">
+                        <div class="flex items-center justify-center mb-4 mx-auto md:mx-0">
+                            <img src="icon_support.png" alt="24/7 Support"
+                                class="h-16 w-16 object-contain drop-shadow-md">
                         </div>
                         <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2 text-center md:text-left">24/7
                             Support</h3>
@@ -362,10 +367,10 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- Category 1 -->
                     <div
-                        class="service-card bg-white dark:bg-dark-card p-8 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col h-full items-center text-center">
-                        <div
-                            class="w-14 h-14 bg-purple-50 dark:bg-purple-900/20 rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="smartphone" class="w-7 h-7 text-primary"></i>
+                        class="service-card glass-panel hover-lift p-8 rounded-xl flex flex-col h-full items-center text-center transition-all duration-300">
+                        <div class="flex items-center justify-center mb-6">
+                            <img src="icon_category_electronics.png" alt="Electronics"
+                                class="h-20 w-20 object-contain drop-shadow-lg">
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Electronics</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">Latest gadgets, smartphones,
@@ -377,10 +382,10 @@
                     </div>
                     <!-- Category 2 -->
                     <div
-                        class="service-card bg-white dark:bg-dark-card p-8 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col h-full items-center text-center">
-                        <div
-                            class="w-14 h-14 bg-amber-50 dark:bg-amber-900/20 rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="shirt" class="w-7 h-7 text-accent"></i>
+                        class="service-card glass-panel hover-lift p-8 rounded-xl flex flex-col h-full items-center text-center transition-all duration-300">
+                        <div class="flex items-center justify-center mb-6">
+                            <img src="icon_category_fashion.png" alt="Fashion"
+                                class="h-20 w-20 object-contain drop-shadow-lg">
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Fashion</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">Trendy clothing, shoes, and
@@ -392,10 +397,10 @@
                     </div>
                     <!-- Category 3 -->
                     <div
-                        class="service-card bg-white dark:bg-dark-card p-8 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col h-full items-center text-center">
-                        <div
-                            class="w-14 h-14 bg-pink-50 dark:bg-pink-900/20 rounded-xl flex items-center justify-center mb-6">
-                            <i data-lucide="home" class="w-7 h-7 text-pink-600"></i>
+                        class="service-card glass-panel hover-lift p-8 rounded-xl flex flex-col h-full items-center text-center transition-all duration-300">
+                        <div class="flex items-center justify-center mb-6">
+                            <img src="icon_category_home.png" alt="Home & Garden"
+                                class="h-20 w-20 object-contain drop-shadow-lg">
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Home & Garden</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-6 flex-grow">Furniture, decor,
