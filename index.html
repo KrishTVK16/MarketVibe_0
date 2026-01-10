@@ -130,21 +130,21 @@
                         </div>
                     </div>
 
+                    <div class="flex items-center space-x-3">
+                        <a href="login.html"
+                            class="btn-hover px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                            style="white-space: nowrap;">Log In</a>
+                        <a href="register.html"
+                            class="btn-hover px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold shadow-md hover:bg-primary-dark transition-colors"
+                            style="white-space: nowrap;">Sign Up</a>
+                    </div>
+
                     <button
                         class="theme-toggle p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
                         aria-label="Toggle Dark Mode">
                         <i data-lucide="sun" class="sun-icon h-5 w-5 hidden"></i>
                         <i data-lucide="moon" class="moon-icon h-5 w-5 block"></i>
                     </button>
-
-                    <div class="flex items-center space-x-3">
-                        <a href="login.html"
-                            class="btn-hover px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                            style="white-space: nowrap;">Log In</a>
-                        <a href="register.html"
-                            class="btn-hover px-4 py-2 rounded-full bg-primary text-white text-sm font-bold shadow-md hover:bg-primary-dark transition-colors"
-                            style="white-space: nowrap;">Sign Up</a>
-                    </div>
                 </nav>
 
                 <!-- Mobile Menu Button -->
@@ -353,14 +353,14 @@
         <!-- Featured Categories -->
         <section class="py-8 bg-transparent">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col items-center text-center mb-8">
-                    <div class="mb-4">
+                <div class="relative flex flex-col md:flex-row items-center justify-center mb-8">
+                    <div class="text-center mb-4 md:mb-0">
                         <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">Explore Categories
                         </h2>
                         <p class="text-gray-600 dark:text-gray-400">Find exactly what you are looking for.</p>
                     </div>
                     <a href="market.html"
-                        class="inline-flex items-center font-medium text-primary hover:text-primary-dark transition-colors">
+                        class="md:absolute md:right-0 inline-flex items-center font-medium text-primary hover:text-primary-dark transition-colors">
                         View All <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
                     </a>
                 </div>
